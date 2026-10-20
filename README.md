@@ -76,7 +76,7 @@ it is the one thing that can quietly drift:
 
 0. **REMOVE THE `noindex` HEADER.** `firebase.json` sends
    `X-Robots-Tag: noindex, nofollow` on every response, so the pre-domain test deploy at
-   `artframetv-web.web.app` cannot be indexed while every canonical still points at
+   `artframetv.web.app` cannot be indexed while every canonical still points at
    `frame.dsa.team`. **Nothing on this site can rank until that header is deleted** — and six
    guides were written to rank. Delete it the moment the real domain is live, and confirm with
    `curl -sI https://frame.dsa.team/ | grep -i robots` returning nothing.
@@ -107,8 +107,7 @@ Firebase Hosting site with a much stricter, `noindex` config — do not merge th
 its own hosting target:
 
 ```bash
-firebase target:apply hosting site <firebase-site-id>
-firebase deploy --only hosting:site
+firebase deploy --only hosting --project artframe-tv
 ```
 
 The CSP in `firebase.json` allows exactly what the pages use: Google Fonts, plus images from

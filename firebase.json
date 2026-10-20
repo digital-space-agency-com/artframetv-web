@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "artframetv-web",
+    "site": "artframetv",
     "public": ".",
     "ignore": [
       "firebase.json",
