@@ -79,6 +79,7 @@
           <li><a href="#links">Shared album links</a></li>
           <li><a href="#pairing">Pairing over your Wi-Fi</a></li>
           <li><a href="#network">Network connections</a></li>
+          <li><a href="#purchases">Purchases</a></li>
           <li><a href="#legal">Legal bases</a></li>
           <li><a href="#rights">Your rights</a></li>
           <li><a href="#delete">Deleting your data</a></li>
@@ -108,6 +109,8 @@
               choices are stored locally and are not synced.</li>
           <li><strong>Nothing is sold or shared.</strong> We do not sell, rent or share personal data
               with anyone, for any purpose.</li>
+          <li><strong>Purchases go through Google, not us.</strong> Studio Unlock is billed by Google
+              Play. We never see your payment details — only whether this device is entitled.</li>
         </ul>
         <div class="callout">
           <p>
@@ -182,6 +185,11 @@
                 <td>Frame settings</td>
                 <td>Your moulding, mat, bevel, brightness and interval choices</td>
                 <td>You change them, or you uninstall</td>
+              </tr>
+              <tr>
+                <td>A Studio Unlock entitlement</td>
+                <td>So the app knows the purchase was made, without an account</td>
+                <td>You uninstall; Play can restore it</td>
               </tr>
               <tr>
                 <td>A cache of bundled artwork</td>
@@ -319,6 +327,7 @@
               <tr><td><code>connect.dsa.team</code> and Firestore</td><td>The phone sign-in hand-off described in §6</td><td>Only during sign-in</td></tr>
               <tr><td><code>upload.wikimedia.org</code></td><td>The bundled public-domain masterworks</td><td>First display, then cached</td></tr>
               <tr><td><code>images.unsplash.com</code></td><td>The bundled sample photography</td><td>First display, then cached</td></tr>
+              <tr><td>Google Play Billing</td><td>Checking or restoring a Studio Unlock purchase</td><td>On launch and at purchase</td></tr>
             </tbody>
           </table>
         </div>
@@ -326,6 +335,28 @@
           Wikimedia and Unsplash are not our processors; they are image hosts the TV fetches from,
           each under its own privacy policy. If you only ever use your own photos, the app will
           still fetch bundled artwork when that source is selected.
+        </p>
+
+        <h2 id="purchases">9a. Purchases</h2>
+        <p>
+          Art Frame TV offers one optional in-app purchase, <strong>Studio Unlock</strong> — a
+          single payment, not a subscription — which enables Google Photos as a source, the full
+          mat and moulding palettes, and the fine-tuning controls.
+        </p>
+        <p>
+          The transaction is handled entirely by <strong>Google Play Billing</strong>. Your card
+          details, billing address and Google account never reach us: Play processes the payment and
+          returns only a purchase token confirming that the entitlement exists. The app stores that
+          entitlement locally and checks it with Play, exactly as it checks nothing else about you.
+          Google's handling of the payment is covered by
+          <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+        </p>
+        <p>
+          There is no account, so the purchase is tied to the Google account that made it through
+          Play, not to any profile we hold. Restoring it on another device is Play re-reporting the
+          entitlement, not us looking you up. Refunds are handled by
+          <a href="https://support.google.com/googleplay/answer/2479637">Google Play support</a>
+          under their refund policy.
         </p>
 
         <h2 id="legal">10. Legal bases for processing</h2>
@@ -338,7 +369,8 @@
               hand-off that makes it possible. You give this by choosing to sign in and may withdraw
               it at any time (§5).</li>
           <li><strong>Performance of a contract (Art. 6(1)(b)).</strong> Storing your settings and
-              your selected photos on your own device so the app can do what you installed it to do.</li>
+              your selected photos on your own device so the app can do what you installed it to do,
+              and honouring a Studio Unlock purchase.</li>
           <li><strong>Legitimate interests (Art. 6(1)(f)).</strong> The minimal, short-lived
               operational logging our hosting provider performs, for the security and availability
               of the relay.</li>

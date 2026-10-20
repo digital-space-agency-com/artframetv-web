@@ -69,6 +69,14 @@ const MINIMAL = [
   { id: 'geo_17', title: 'Sunlight streams across brick wall and staircase',            photo: 'photo-1759516176657-69df2e4856cf' },
 ].map((p) => ({ ...p, ar: 1.5, year: '', artist: 'Unsplash', url: `https://images.unsplash.com/${p.photo}?w=1280&q=80` }));
 
+/* The free/unlock split, from model/Premium.kt. If that file changes, change this. */
+const FREE = {
+  mouldings: new Set(['DARK_WALNUT', 'NONE']),
+  mattes: new Set(['WARM_COTTON', 'NONE']),
+  widthsDp: new Set([32, 36]),
+  marginsDp: new Set([0, 16, 32]),
+};
+
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ------------------------------------------------------------- the frame */
@@ -199,30 +207,37 @@ if ('IntersectionObserver' in window) {
 
 /* --------------------------------------------------------- material lists */
 
-const swatchRow = (name, hex, wood) => `
+const tag = (free) => free
+  ? '<span class="tier" data-free="true">Free</span>'
+  : '<span class="tier">Studio Unlock</span>';
+
+const swatchRow = (name, hex, wood, free) => `
   <li>
     <span class="sw" style="background:${hex}"${wood ? ' data-wood="true"' : ''}></span>
     <span>${name}</span>
+    ${tag(free)}
     <span class="hex">${hex.toUpperCase()}</span>
   </li>`;
 
-document.getElementById('matList').innerHTML = Object.values(MATTES)
-  .filter((m) => m.hex !== 'transparent')
-  .map((m) => swatchRow(m.name, m.hex))
+document.getElementById('matList').innerHTML = Object.entries(MATTES)
+  .filter(([, m]) => m.hex !== 'transparent')
+  .map(([k, m]) => swatchRow(m.name, m.hex, false, FREE.mattes.has(k)))
   .join('');
 
 document.getElementById('mouldList').innerHTML = Object.entries(MOULDINGS)
   .filter(([k]) => k !== 'NONE')
-  .map(([, m]) => `
+  .map(([k, m]) => `
     <li>
       <span class="sw" data-wood="true" style="background:linear-gradient(135deg, ${m.b}, ${m.a})"></span>
       <span>${m.name}</span>
+      ${tag(FREE.mouldings.has(k))}
       <span class="hex">${m.a.toUpperCase()}</span>
     </li>`)
   .join('') + `
     <li>
       <span class="sw" data-wood="true" style="background:repeating-linear-gradient(45deg,#2a2724 0 4px,#1a1917 4px 8px)"></span>
       <span>Frameless (Edge-to-Edge)</span>
+      ${tag(true)}
       <span class="hex">—</span>
     </li>`;
 
@@ -248,14 +263,15 @@ const gaugeRow = (rows, tone) => {
     <li>
       <span class="gauge" style="--fill:${(r.dp / max * 100).toFixed(1)}%;--tone:${tone}"></span>
       <span>${r.label}</span>
+      ${tag(r.free)}
       <span class="hex">${r.dp}dp</span>
     </li>`).join('');
 };
 
-document.getElementById('thicknessList').innerHTML =
-  gaugeRow(MAT_THICKNESS, 'var(--mat-paper)');
-document.getElementById('widthList').innerHTML =
-  gaugeRow(FRAME_WIDTH, 'var(--bronze-lt)');
+document.getElementById('thicknessList').innerHTML = gaugeRow(
+  MAT_THICKNESS.map((r) => ({ ...r, free: FREE.marginsDp.has(r.dp) })), 'var(--mat-paper)');
+document.getElementById('widthList').innerHTML = gaugeRow(
+  FRAME_WIDTH.map((r) => ({ ...r, free: FREE.widthsDp.has(r.dp) })), 'var(--bronze-lt)');
 
 /* ----------------------------------------------------------- gallery strip */
 
