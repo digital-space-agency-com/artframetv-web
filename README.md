@@ -1,6 +1,6 @@
 # Art Frame TV — marketing site
 
-Static landing page, guides and privacy policy for `frame.dsa.team`. No build step: plain
+Static landing page, guides and privacy policy for `artframetv.dsa.team`. No build step: plain
 HTML/CSS/JS, deployable to Firebase Hosting, GitHub Pages or any static host.
 
 **This repo is the website only.** The Android app lives in a separate repository (`TVFrame`,
@@ -74,12 +74,13 @@ it is the one thing that can quietly drift:
 
 ## Before publishing
 
-0. **REMOVE THE `noindex` HEADER.** `firebase.json` sends
+0. **Point `artframetv.dsa.team` at this site**, then **REMOVE THE `noindex` HEADER.** `firebase.json` sends
    `X-Robots-Tag: noindex, nofollow` on every response, so the pre-domain test deploy at
    `artframetv.web.app` cannot be indexed while every canonical still points at
-   `frame.dsa.team`. **Nothing on this site can rank until that header is deleted** — and six
+   `artframetv.dsa.team`. **Nothing on this site can rank until that header is deleted** — and six
    guides were written to rank. Delete it the moment the real domain is live, and confirm with
-   `curl -sI https://frame.dsa.team/ | grep -i robots` returning nothing.
+   `curl -sI https://artframetv.dsa.team/ | grep -i robots` returning nothing.
+   DNS lives at Namecheap: Advanced DNS on `dsa.team`, Host `artframetv` (not the full name).
 1. **Privacy policy §2** has a placeholder for the registered postal address. Fill it in — a
    controller address is required under GDPR Art. 13, and Play's data-safety review checks the
    policy is complete.
