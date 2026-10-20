@@ -74,6 +74,12 @@ it is the one thing that can quietly drift:
 
 ## Before publishing
 
+0. **REMOVE THE `noindex` HEADER.** `firebase.json` sends
+   `X-Robots-Tag: noindex, nofollow` on every response, so the pre-domain test deploy at
+   `artframetv-web.web.app` cannot be indexed while every canonical still points at
+   `frame.dsa.team`. **Nothing on this site can rank until that header is deleted** — and six
+   guides were written to rank. Delete it the moment the real domain is live, and confirm with
+   `curl -sI https://frame.dsa.team/ | grep -i robots` returning nothing.
 1. **Privacy policy §2** has a placeholder for the registered postal address. Fill it in — a
    controller address is required under GDPR Art. 13, and Play's data-safety review checks the
    policy is complete.
