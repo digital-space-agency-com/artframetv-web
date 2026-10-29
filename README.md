@@ -84,9 +84,8 @@ it is the one thing that can quietly drift:
    policy is complete.
 2. **A German `Impressum`** is a separate legal requirement for a UG's website (§5 DDG). It is
    not part of this policy page; add it as `imprint.html` and link it from the footer.
-3. **Two call-to-action buttons** read "Coming soon on Google Play" and already link to
-   `play.google.com/store/apps/details?id=team.dsa.artframetv`. At launch, change the label to
-   "Get it on Google Play" — one in `index.html`'s hero, one in the closing section.
+3. **Two call-to-action buttons** read "Get it on Google Play" and link to
+   `play.google.com/store/apps/details?id=team.dsa.artframetv` (one in `index.html`'s hero, one in the closing section).
 4. **Social card.** `images/social-1200x630.png` and `images/icon-180.png` are generated in the
    app repo by `store/generate/build.py`, alongside the Play assets, so the OG card and the store
    listing share one lockup. Re-running that script writes into this repo — point its
