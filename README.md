@@ -74,13 +74,11 @@ it is the one thing that can quietly drift:
 
 ## Before publishing
 
-0. **Point `getframetv.com` at this site**, then **REMOVE THE `noindex` HEADER.** `firebase.json` sends
-   `X-Robots-Tag: noindex, nofollow` on every response, so the pre-domain test deploy at
-   `artframetv.web.app` cannot be indexed while every canonical still points at
-   `getframetv.com`. **Nothing on this site can rank until that header is deleted** — and six
-   guides were written to rank. Delete it the moment the real domain is live, and confirm with
+0. **Domain is live, and indexable.** `getframetv.com` is served by GitHub Pages (`CNAME` in this
+   repo, DNS at Namecheap), which sends no `X-Robots-Tag`. The `noindex, nofollow` header in
+   `firebase.json` only affects the Firebase test deploy at `artframetv.web.app`, which is
+   deliberately kept out of search because every canonical points at `getframetv.com`. Confirm with
    `curl -sI https://getframetv.com/ | grep -i robots` returning nothing.
-   DNS lives at Namecheap: Advanced DNS on `dsa.team`, Host `artframetv` (not the full name).
 1. **Privacy policy §2** has a placeholder for the registered postal address. Fill it in — a
    controller address is required under GDPR Art. 13, and Play's data-safety review checks the
    policy is complete.
