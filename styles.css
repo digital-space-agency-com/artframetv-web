@@ -1070,3 +1070,6 @@ code {
 }
 .mat-list .hex { margin-left: 14px; }
 @media (max-width: 520px) { .tier { display: none; } }
+
+/* Keep in-page anchors clear of the sticky nav. */
+[id] { scroll-margin-top: 96px; }
