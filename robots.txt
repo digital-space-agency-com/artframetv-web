@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://artframetv.dsa.team/sitemap.xml
+Sitemap: https://getframetv.com/sitemap.xml

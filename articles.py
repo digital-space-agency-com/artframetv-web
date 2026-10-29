@@ -7,7 +7,7 @@ targeting is auditable rather than guessed.
 import os, sys, html, re
 
 OUT = sys.argv[1]
-SITE = "https://artframetv.dsa.team"
+SITE = "https://getframetv.com"
 
 ARTICLES = [
  dict(
