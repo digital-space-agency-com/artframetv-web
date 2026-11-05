@@ -581,7 +581,7 @@ NAV = """<header class="nav" id="nav">
       <li><a href="/#craft">The framing</a></li>
       <li><a href="/#materials">Materials</a></li>
       <li><a href="/#photos">Your photos</a></li>
-      <li><a href="/articles">Guides</a></li>
+      <li><a href="/articles/">Guides</a></li>
       <li><a href="/privacy">Privacy</a></li>
     </ul>
     <a class="btn btn-ghost btn-sm" href="/#get">Get the app</a>
@@ -593,7 +593,7 @@ FOOT = """<footer class="foot">
   <div class="wrap">
     <p class="foot-legal">
       © <span id="year">2026</span> Digital Space Agency UG ·
-      <a href="/">Art Frame TV</a> · <a href="/articles">Guides</a> ·
+      <a href="/">Art Frame TV</a> · <a href="/articles/">Guides</a> ·
       <a href="/privacy">Privacy</a> · <a href="mailto:info@dsa.team">info@dsa.team</a><br>
       Art Frame TV is not affiliated with, endorsed by, or sponsored by Google or Samsung.
       Google TV, Android TV and Google Photos are trademarks of Google LLC.
@@ -661,7 +661,7 @@ for a in ARTICLES:
 <main id="main" class="doc">
   <div class="wrap">
     <div class="doc-head">
-      <p class="eyebrow"><a href="/articles" style="color:inherit;text-decoration:none">Guides</a></p>
+      <p class="eyebrow"><a href="/articles/" style="color:inherit;text-decoration:none">Guides</a></p>
       <h1>{html.escape(a['title'])}</h1>
       <p class="lede">{a['intro'].strip()}</p>
       <div class="doc-meta">
