@@ -340,7 +340,11 @@ HEAD = """<!doctype html>
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{site}/images/social-1200x630.png?v=2">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/icon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/images/icon-180.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">

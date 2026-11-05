@@ -12,7 +12,7 @@ package `team.dsa.artframetv`). Paths below that start `app/` or `store/` refer 
 | `privacy.html` | Privacy policy — the URL the Play Console listing points at |
 | `styles.css` | One stylesheet for both pages |
 | `main.js` | The hero television: presets, crossfade, material lists |
-| `images/` | `social-1200x630.png` (OG card) and `icon-180.png` (apple-touch-icon) |
+| `images/` | `social-1200x630.png` (OG card) and `icon-<px>.png` (favicons, apple-touch-icon) |
 | `firebase.json` | Hosting config with `cleanUrls`, CSP and cache headers |
 
 ## Brand
@@ -38,8 +38,14 @@ Two deliberate departures, both documented inline in `styles.css`:
   The same applies to every swatch in the Materials section and inside the hero television —
   those are product truth, taken from `MatteColor.kt` and `FrameMoulding.kt`.
 
-The logo mark in the nav and `favicon.svg` are redrawn from the brand pack's `logo_vector.svg`:
-navy ground, double gold rule, four gold corner accents.
+The logo mark in the nav is redrawn from the brand pack's `logo_vector.svg`: navy ground, double
+gold rule, four gold corner accents.
+
+**The favicon is not that mark — it is the app's icon.** `images/icon-<px>.png` is the 512×512 Play
+listing icon resized, so a visitor who found the app on Play meets the same gold frame in the
+browser tab, and a search result carries the icon they will tap on their TV. There is no
+`favicon.svg`: a vector redraw is one more thing to keep in step with artwork that is photographic
+anyway. Browsers pick from the 16/32/48/192 PNGs; iOS takes the 180.
 
 ## The hero television
 
@@ -86,10 +92,18 @@ it is the one thing that can quietly drift:
    not part of this policy page; add it as `imprint.html` and link it from the footer.
 3. **Two call-to-action buttons** read "Get it on Google Play" and link to
    `play.google.com/store/apps/details?id=team.dsa.artframetv` (one in `index.html`'s hero, one in the closing section).
-4. **Social card.** `images/social-1200x630.png` and `images/icon-180.png` are generated in the
-   app repo by `store/generate/build.py`, alongside the Play assets, so the OG card and the store
-   listing share one lockup. Re-running that script writes into this repo — point its
-   `<out-site>` argument at `<this repo>/images`.
+4. **Generated images.** Everything in `images/` is built in the app repo and written straight
+   into this one, so the site, the store listing and the app cannot drift apart. Both scripts take
+   `<this repo>/images` as their last argument:
+
+   ```bash
+   .venv/bin/python -I build.py <art> <fonts> <out-play> <out-res> <this repo>/images   # OG card
+   .venv/bin/python -I icon.py <out-play> <out-res> <this repo>/images                  # favicons
+   ```
+
+   `build.py` writes `social-1200x630.png`, which shares its lockup with the Play assets. `icon.py`
+   writes the `icon-<px>.png` set from the same composite as the Play listing icon. Bump the `?v=`
+   on the `<link rel="icon">` tags when the icons change, or caches keep serving the old ones.
 5. **`.well-known/assetlinks.json`** if you want Play Install Referrer or app links from the site.
 
 ## Local preview
