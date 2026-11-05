@@ -713,7 +713,7 @@ cards = "\n".join(f"""        <article class="craft-cell">
 
 hub = HEAD.format(
     title="Guides", desc="Practical guides to screensavers, art and photo framing on Google TV and Android TV.",
-    canon=f"{SITE}/articles", site=SITE, nav=NAV,
+    canon=f"{SITE}/articles/", site=SITE, nav=NAV,
     schema=f"""<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"CollectionPage","name":"Art Frame TV Guides",
 "url":{jstr(SITE + '/articles/')},"hasPart":[{",".join(
