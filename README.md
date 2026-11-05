@@ -38,14 +38,18 @@ Two deliberate departures, both documented inline in `styles.css`:
   The same applies to every swatch in the Materials section and inside the hero television —
   those are product truth, taken from `MatteColor.kt` and `FrameMoulding.kt`.
 
-The logo mark in the nav is redrawn from the brand pack's `logo_vector.svg`: navy ground, double
-gold rule, four gold corner accents.
+**The site has one mark, and it is the app's icon.** `images/icon-<px>.png` is the Play listing
+icon resized, so a visitor who found the app on Play meets the same gold frame in the browser tab,
+in the nav and in a search result. The nav brand used to be an inline SVG redrawn from the brand
+pack's `logo_vector.svg` — navy ground, double gold rule, four gold corner accents — which read as
+a second, simpler logo sitting next to the real one in the tab. It is gone; the nav now shows
+`icon-192.png` at 30px (`.brand-mark` in `styles.css`), the same file the page already declares as
+a favicon, so it is normally in cache before the header paints.
 
-**The favicon is not that mark — it is the app's icon.** `images/icon-<px>.png` is the 512×512 Play
-listing icon resized, so a visitor who found the app on Play meets the same gold frame in the
-browser tab, and a search result carries the icon they will tap on their TV. There is no
-`favicon.svg`: a vector redraw is one more thing to keep in step with artwork that is photographic
-anyway. Browsers pick from the 16/32/48/192 PNGs; iOS takes the 180.
+There is no `favicon.svg`: a vector redraw is one more thing to keep in step with artwork that is
+photographic anyway. Browsers pick from the 16/32/48/192 PNGs; iOS takes the 180. The icons are
+not drawn here at all — `store/generate/icon.py` in the app repo writes them from the same
+composite as the Play icon, which is what keeps the tab and the listing from drifting apart.
 
 ## The hero television
 

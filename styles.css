@@ -199,6 +199,14 @@ p:last-child { margin-bottom: 0; }
   margin-right: auto;
   flex-shrink: 0;
 }
+/* The app's icon, not a second brand mark: the same artwork the tab, the Play
+   listing and the home screen show. 3px of radius, as the drawn mark had. */
+.brand-mark {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
 .brand-name {
   font: 500 17px/1 var(--serif);
   letter-spacing: 0.005em;
