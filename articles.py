@@ -13,6 +13,7 @@ ARTICLES = [
  dict(
   slug="google-tv-screensaver",
   kw="android tv screensaver", vol=390, kd=2,
+  updated="2026-11-05",
   title="How to change the screensaver on Google TV and Android TV",
   desc="Three ways to change the screensaver on Google TV or Android TV, including how to use a third-party screensaver that Ambient Mode normally blocks.",
   intro="""Google TV and Android TV handle screensavers differently, and the setting most
@@ -41,11 +42,12 @@ what works on each, in order of how much effort it takes.""",
    options: <strong>Settings → System → About</strong>, then click <strong>Android TV OS build</strong>
    seven times. Then turn on <strong>Wireless debugging</strong> under Developer options, and from
    a computer on the same network:</p>
-   <pre><code>adb connect &lt;tv-ip&gt;:5555
-adb shell settings put secure screensaver_components &lt;package&gt;/&lt;service&gt;
+   <p>Wireless debugging has to be paired with your computer once before it will connect, and the
+   port is not 5555. The step-by-step version, with the commands and the fixes for the errors people
+   hit, is in <a href="/articles/set-up-art-frame-tv">How to set up Art Frame TV as your screensaver</a>.
+   The command that does the work is:</p>
+   <pre><code>adb shell settings put secure screensaver_components team.dsa.artframetv/.service.ArtFrameDreamService
 adb shell settings put secure screensaver_enabled 1</code></pre>
-   <p>Test it immediately rather than waiting for the idle timer:</p>
-   <pre><code>adb shell cmd dreams start-dreaming</code></pre>
    <p>This survives reboots. It does not always survive a system update, so keep the command
    somewhere you can find it again.</p>"""),
    ("Turning the screensaver off", """<p>On Google TV, <strong>Settings → System → Ambient mode</strong>
@@ -63,6 +65,211 @@ adb shell settings put secure screensaver_enabled 1</code></pre>
     "Yes. The setting is written to secure settings and persists across restarts. It can be reset by a system update, in which case you run the same command again."),
    ("Can I use my own photos as the screensaver?",
     "Yes. On Google TV, set the Ambient mode source to Google Photos and choose an album. On Android TV, install a photo screensaver app and select it in the Screen saver menu."),
+  ]),
+ dict(
+  slug="set-up-art-frame-tv",
+  kw="set up art frame tv screensaver", vol=0, kd=0,
+  updated="2026-11-05",
+  title="How to set up Art Frame TV as your screensaver",
+  desc="Step-by-step setup for Art Frame TV on Google TV and Android TV: the no-computer launcher route, the ADB route with pairing, and fixes for the errors people actually hit.",
+  intro="""Installing Art Frame TV takes a minute. Making it the screensaver takes one extra step,
+because Google TV keeps its own Ambient Mode in the way. This guide covers every route, starting
+with the ones that need no computer, and the fixes for the errors that stop people on the ADB route.""",
+  sections=[
+   ("Which route do you need?", """<p>Install <strong>Art Frame TV</strong> from Google Play on the TV
+   and open it once. Then check <strong>Settings → Device Preferences → Screen saver</strong>.</p>
+   <ul>
+   <li><strong>Art Frame TV is in that list:</strong> select it. You are done.</li>
+   <li><strong>There is no Screen saver menu, only Ambient mode (most Google TV devices):</strong>
+   Google does not let Ambient mode use other apps. Use a launcher (route 1) or ADB (route 2).</li>
+   </ul>
+   <p>Use <strong>version 1.0.5 or later</strong>. Earlier versions close the screensaver the moment it
+   starts, so update from Google Play first.</p>
+   <p>You never have to set the screensaver up to use the app. It works fully from its own icon;
+   the screensaver is for when you want the frame to appear by itself once the TV goes idle.</p>"""),
+   ("Route 1: a launcher with Screensaver Override", """<p>No computer, no terminal, and no pairing. Replacement
+   launchers such as <strong>Projectivy Launcher</strong> or <strong>FLauncher</strong> add the
+   screensaver choice that Google TV hides.</p>
+   <ol>
+   <li>Install the launcher from Google Play and make it the home screen when asked.</li>
+   <li>Open its settings and find <strong>Screensaver Override</strong>.</li>
+   <li>Choose <strong>Art Frame TV Screensaver</strong>.</li>
+   </ol>
+   <p>The trade-off is that you are changing your home screen. If you would rather not, use route 2.</p>"""),
+   ("Route 2: ADB over Wi-Fi", """<p>ADB is Android's developer tool. You run it once, on a computer that is on the
+   same Wi-Fi network as the TV, and the setting then stays on the TV.</p>
+
+   <h3>1. Install ADB on your computer</h3>
+   <p>ADB ships in Google's <strong>platform-tools</strong>. Pick the line for your system and run it in a terminal:</p>
+   <pre><code># macOS (Homebrew)
+brew install --cask android-platform-tools
+
+# Windows (PowerShell)
+winget install Google.PlatformTools
+
+# Debian / Ubuntu
+sudo apt install adb</code></pre>
+   <p>Open a <strong>new</strong> terminal window and check it worked:</p>
+   <pre><code>adb version</code></pre>
+   <p>If you see <code>command not found: adb</code>, see the fixes below.</p>
+
+   <h3>2. Turn on Wireless debugging on the TV</h3>
+   <p>Go to <strong>Settings → System → About</strong> and click <strong>Android TV OS build</strong>
+   seven times. Developer options now appear under <strong>Settings → System</strong>. Open them and
+   turn on <strong>Wireless debugging</strong>.</p>
+
+   <h3>3. Pair (once)</h3>
+   <p>Wireless debugging will not talk to a computer until the two are paired. On the TV, open
+   <strong>Wireless debugging → Pair device with pairing code</strong>. A dialog shows an address with a
+   port, and a six-digit code. Keep it open, and on the computer run:</p>
+   <pre><code>adb pair 192.168.1.50:37215 123456</code></pre>
+   <p>Use <strong>your</strong> address, port and code from the dialog; the numbers above are examples.
+   Do not type the angle brackets or placeholder words from other guides. You should see
+   <code>Successfully paired</code>. The port and code are temporary: they change every time the dialog opens.</p>
+
+   <h3>4. Connect</h3>
+   <p>Close the pairing dialog. The main Wireless debugging screen shows
+   <strong>IP address &amp; Port</strong>, a different port from the pairing one. It is not 5555.</p>
+   <pre><code>adb connect 192.168.1.50:41234
+adb devices</code></pre>
+   <p>The device should be listed as <code>device</code>. If the TV asks <strong>Allow debugging?</strong>,
+   accept it.</p>
+
+   <h3>5. Set the screensaver</h3>
+   <pre><code>adb shell settings put secure screensaver_components team.dsa.artframetv/.service.ArtFrameDreamService
+adb shell settings put secure screensaver_enabled 1</code></pre>
+   <p>Check that it stuck:</p>
+   <pre><code>adb shell settings get secure screensaver_components</code></pre>
+   <p>That should print <code>team.dsa.artframetv/.service.ArtFrameDreamService</code>. To see it
+   straight away, use <strong>Start now</strong> in your TV's screensaver menu (on Google TV it is
+   under <strong>Ambient screensaver</strong>). If Start now does nothing, go to the next section.</p>
+   <p>The setting survives restarts. A system update can reset it, in which case run the two
+   <code>settings put</code> lines again. To undo it, run
+   <code>adb shell settings delete secure screensaver_components</code>.</p>"""),
+   ("If Start now does nothing (TCL and some other brands)", """<p>Some manufacturers add their own gatekeeper that refuses to start any app in the background
+   unless it has been given an <strong>auto-start</strong> permission. The screensaver is exactly that:
+   the TV starts it for you. TCL TVs do this, and so can others. The signs are that the settings above
+   are correct, Start now does nothing, and the screensaver never appears when the TV idles.</p>
+   <p>With ADB connected (steps 1 to 4), grant the permission:</p>
+   <pre><code>adb shell appops set team.dsa.artframetv AUTO_START allow
+adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
+   <p>The second command should print <code>AUTO_START: allow</code>. Then press <strong>Start now</strong>
+   again. If the TV answers <em>Unknown operation</em>, it has no such permission and this is not your problem.
+   Look in the TV's own settings for an <strong>Auto-start</strong> or <strong>App permissions</strong> screen
+   and allow Art Frame TV there.</p>
+   <p>If you are comfortable reading logs, this confirms the diagnosis. Run
+   <code>adb logcat -c</code>, press Start now, then <code>adb logcat -d | grep -i "forbid bind"</code>.
+   A line mentioning <code>Unable to bind dream service</code> means the TV refused to start it.</p>"""),
+   ("When ADB fails", """<h3>command not found: adb</h3>
+   <p>The tools are not on your PATH, or your terminal opened before they were installed. Close
+   the terminal, open a new one and try <code>adb version</code> again. Terminals that were already open
+   do not notice newly installed commands.</p>
+
+   <h3>no such file or directory: tv-ip</h3>
+   <p>You typed a placeholder literally. In many guides <code>&lt;tv-ip&gt;</code> stands for your TV's
+   address, and the shell reads the <code>&lt;</code> as a file redirect. Replace the whole thing,
+   brackets included, with the address from the TV.</p>
+
+   <h3>error: protocol fault on adb pair</h3>
+   <p>The pairing handshake did not complete. Try these in order, and after each one reopen
+   <strong>Pair device with pairing code</strong> on the TV so you have a fresh port and code, because each
+   code works for one attempt only:</p>
+   <ol>
+   <li><strong>Use the pairing port.</strong> It is the one in the pairing dialog, not the one on the main
+   Wireless debugging screen. Type it straight after the address, then the code when asked.</li>
+   <li><strong>Restart the ADB server.</strong> A stale background process is the most common cause. Run
+   <pre><code>adb kill-server</code></pre> then pair again. The server restarts by itself.</li>
+   <li><strong>Keep the TV awake.</strong> If the dialog closes or the screen sleeps, the code is gone.</li>
+   <li><strong>Security software.</strong> If it still fails while <code>nc -z</code> reaches the port, use the
+   relay in the section below.</li>
+   </ol>
+   <p>A wrong <em>code</em> usually reports a plain failure to pair instead.</p>
+
+   <h3>failed to connect … No route to host</h3>
+   <p>Despite the wording, this is rarely a real routing problem, especially if the TV answers
+   <code>ping</code>. Work through these in order:</p>
+   <ol>
+   <li><strong>Not paired yet.</strong> Do step 3 first. Connecting an unpaired computer fails.</li>
+   <li><strong>Stale port.</strong> The connect port changes whenever Wireless debugging is switched off and
+   on, and sometimes after a restart. Read it again from the TV.</li>
+   <li><strong>Different network.</strong> The computer and TV must be on the same network. Guest Wi-Fi and
+   some mesh systems isolate devices from each other.</li>
+   <li><strong>Security software.</strong> See below.</li>
+   </ol>
+
+   <h3>Security software blocks only ADB</h3>
+   <p>Some VPNs and antivirus suites filter network traffic per application. They can block
+   <code>adb</code> while <code>ping</code> and everything else works. You can tell it is happening if a
+   plain connection to the TV's port succeeds but ADB fails:</p>
+   <pre><code>nc -z -v 192.168.1.50 41234     # macOS / Linux
+adb connect 192.168.1.50:41234</code></pre>
+   <p>If <code>nc</code> says <em>succeeded</em> and ADB says <em>No route to host</em>, the network is fine
+   and something is filtering ADB. Pausing the filter works, but the filter is often a system extension
+   that keeps running after you disconnect a VPN, so it may need to be switched off in the security
+   software itself. If you would rather leave it on, forward the ports through Python, which these filters
+   normally allow. Save this as <code>relay.py</code>:</p>
+   <pre><code>import socket, sys, threading
+
+host = sys.argv[1]
+
+def pipe(src, dst):
+    try:
+        while True:
+            data = src.recv(65536)
+            if not data:
+                break
+            dst.sendall(data)
+    except OSError:
+        pass
+    finally:
+        for s in (src, dst):
+            try:
+                s.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
+
+def serve(local, remote):
+    srv = socket.socket()
+    srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    srv.bind(("127.0.0.1", local))
+    srv.listen(8)
+    while True:
+        client, _ = srv.accept()
+        try:
+            upstream = socket.create_connection((host, remote), 5)
+        except OSError:
+            client.close()
+            continue
+        threading.Thread(target=pipe, args=(client, upstream), daemon=True).start()
+        threading.Thread(target=pipe, args=(upstream, client), daemon=True).start()
+
+for pair in sys.argv[2:]:
+    local, remote = map(int, pair.split(":"))
+    threading.Thread(target=serve, args=(local, remote), daemon=True).start()
+threading.Event().wait()</code></pre>
+   <p>Run it with the TV's address, then one <code>local:remote</code> pair for the pairing port and one
+   for the connect port, and leave it running:</p>
+   <pre><code>python3 relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
+   <p>In a second terminal, use <code>127.0.0.1</code> and the local ports in place of the TV's address:</p>
+   <pre><code>adb pair 127.0.0.1:55001 123456
+adb connect 127.0.0.1:55002</code></pre>
+   <p>Everything from step 5 then works as normal. Stop the script with Ctrl+C when you are done.</p>"""),
+  ],
+  faq=[
+   ("Do I have to set Art Frame TV as the screensaver?",
+    "No. The app works fully from its own icon. The screensaver only matters if you want the frame to appear by itself when the TV goes idle."),
+   ("What is the easiest way to set it as the screensaver on Google TV?",
+    "A launcher with a screensaver override, such as Projectivy Launcher or FLauncher. Install it, open Screensaver Override in its settings and choose Art Frame TV Screensaver. It needs no computer."),
+   ("Why does adb connect say No route to host?",
+    "Usually because the computer has not been paired with the TV yet, the Wireless debugging port has changed, or security software is blocking ADB specifically. It is rarely a genuine network fault."),
+   ("Why does adb pair say protocol fault?",
+    "You almost certainly used the wrong port. adb pair needs the port shown in the Pair device with pairing code dialog, which is different from the port on the main Wireless debugging screen, and it changes every time the dialog opens."),
+   ("Is port 5555 right for Wireless debugging?",
+    "No. Wireless debugging on Android 11 and later uses a random port for pairing and another random port for connecting. Port 5555 belongs to the older USB-then-tcpip method."),
+   ("Why does Start now do nothing on my TCL TV?",
+    "TCL's auto-start manager blocks apps from starting in the background unless they have the AUTO_START permission. Connect with ADB and run adb shell appops set team.dsa.artframetv AUTO_START allow, then press Start now again."),
+   ("Does it need root, and can I undo it?",
+    "It does not need root. The command only writes a normal secure setting. To undo it, run adb shell settings delete secure screensaver_components, or choose another screensaver in the TV's settings."),
   ]),
  dict(
   slug="google-photos-on-tv",
@@ -399,6 +606,11 @@ const nav=document.getElementById('nav');const f=()=>{nav.dataset.stuck=String(s
 </html>
 """
 
+def fmt_date(iso):
+    import datetime
+    d = datetime.date.fromisoformat(iso)
+    return f"{d.day} {d.strftime('%B %Y')}"
+
 def schema_for(a, canon):
     faq = ",\n".join(
         '{"@type":"Question","name":%s,"acceptedAnswer":{"@type":"Answer","text":%s}}'
@@ -406,7 +618,7 @@ def schema_for(a, canon):
     return f"""<script type="application/ld+json">
 {{"@context":"https://schema.org","@graph":[
 {{"@type":"Article","headline":{jstr(a['title'])},"description":{jstr(a['desc'])},
- "mainEntityOfPage":{jstr(canon)},"datePublished":"2026-10-20","dateModified":"2026-10-20",
+ "mainEntityOfPage":{jstr(canon)},"datePublished":"2026-10-20","dateModified":"{a.get('updated','2026-10-20')}",
  "author":{{"@type":"Organization","name":"Digital Space Agency UG"}},
  "publisher":{{"@type":"Organization","name":"Art Frame TV"}}}},
 {{"@type":"BreadcrumbList","itemListElement":[
@@ -428,7 +640,7 @@ def slug(text):
 os.makedirs(OUT, exist_ok=True)
 
 for a in ARTICLES:
-    canon = f"{SITE}/articles{a['slug']}"
+    canon = f"{SITE}/articles/{a['slug']}"
     toc = "\n".join(
         f'          <li><a href="#{slug(t)}">{t}</a></li>' for t, _ in a["sections"])
     body = "\n".join(
@@ -453,7 +665,7 @@ for a in ARTICLES:
       <h1>{html.escape(a['title'])}</h1>
       <p class="lede">{a['intro'].strip()}</p>
       <div class="doc-meta">
-        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-10-20">20 October 2026</time></span>
+        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="{a.get('updated','2026-10-20')}">{fmt_date(a.get('updated','2026-10-20'))}</time></span>
         <span><strong style="color:var(--muted)">For</strong> Google TV &amp; Android TV</span>
       </div>
     </div>

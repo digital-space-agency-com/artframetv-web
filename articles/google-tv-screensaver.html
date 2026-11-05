@@ -26,7 +26,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Article","headline":"How to change the screensaver on Google TV and Android TV","description":"Three ways to change the screensaver on Google TV or Android TV, including how to use a third-party screensaver that Ambient Mode normally blocks.",
- "mainEntityOfPage":"https://getframetv.com/articles/google-tv-screensaver","datePublished":"2026-10-20","dateModified":"2026-10-20",
+ "mainEntityOfPage":"https://getframetv.com/articles/google-tv-screensaver","datePublished":"2026-10-20","dateModified":"2026-11-05",
  "author":{"@type":"Organization","name":"Digital Space Agency UG"},
  "publisher":{"@type":"Organization","name":"Art Frame TV"}},
 {"@type":"BreadcrumbList","itemListElement":[
@@ -77,7 +77,7 @@
 people look for — pick any installed app as the screensaver — is hidden on Google TV. Here is
 what works on each, in order of how much effort it takes.</p>
       <div class="doc-meta">
-        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-10-20">20 October 2026</time></span>
+        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-11-05">5 November 2026</time></span>
         <span><strong style="color:var(--muted)">For</strong> Google TV &amp; Android TV</span>
       </div>
     </div>
@@ -120,11 +120,12 @@ what works on each, in order of how much effort it takes.</p>
    options: <strong>Settings → System → About</strong>, then click <strong>Android TV OS build</strong>
    seven times. Then turn on <strong>Wireless debugging</strong> under Developer options, and from
    a computer on the same network:</p>
-   <pre><code>adb connect &lt;tv-ip&gt;:5555
-adb shell settings put secure screensaver_components &lt;package&gt;/&lt;service&gt;
+   <p>Wireless debugging has to be paired with your computer once before it will connect, and the
+   port is not 5555. The step-by-step version, with the commands and the fixes for the errors people
+   hit, is in <a href="/articles/set-up-art-frame-tv">How to set up Art Frame TV as your screensaver</a>.
+   The command that does the work is:</p>
+   <pre><code>adb shell settings put secure screensaver_components team.dsa.artframetv/.service.ArtFrameDreamService
 adb shell settings put secure screensaver_enabled 1</code></pre>
-   <p>Test it immediately rather than waiting for the idle timer:</p>
-   <pre><code>adb shell cmd dreams start-dreaming</code></pre>
    <p>This survives reboots. It does not always survive a system update, so keep the command
    somewhere you can find it again.</p>
         <h2 id="turning-the-screensaver-off">Turning the screensaver off</h2>
@@ -162,6 +163,7 @@ adb shell settings put secure screensaver_enabled 1</code></pre>
 
         <h2 id="more">More guides</h2>
         <ul>
+            <li><a href="/articles/set-up-art-frame-tv">How to set up Art Frame TV as your screensaver</a></li>
             <li><a href="/articles/google-photos-on-tv">How to put your Google Photos on your TV screensaver</a></li>
             <li><a href="/articles/free-art-for-frame-tv">Where to find free art for a Frame TV — and any other TV</a></li>
             <li><a href="/articles/tv-as-digital-photo-frame">How to turn any TV into a digital photo frame</a></li>
