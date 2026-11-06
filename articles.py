@@ -69,7 +69,7 @@ adb shell settings put secure screensaver_enabled 1</code></pre>
  dict(
   slug="set-up-art-frame-tv",
   kw="set up art frame tv screensaver", vol=0, kd=0,
-  updated="2026-11-06",
+  updated="2026-11-06", picker=True,
   title="How to set up Art Frame TV as your screensaver",
   desc="Step-by-step setup for Art Frame TV on Google TV and Android TV: the no-computer launcher route, the ADB route with pairing, and fixes for the errors people actually hit.",
   intro="""Installing Art Frame TV takes a minute. Making it the screensaver takes one extra step,
@@ -95,26 +95,22 @@ with the ones that need no computer, and the fixes for the errors that stop peop
    <li>Open its settings and find <strong>Screensaver Override</strong>.</li>
    <li>Choose <strong>Art Frame TV Screensaver</strong>.</li>
    </ol>
-   <p>The trade-off is that you are changing your home screen. If you would rather not, use route 2.</p>"""),
+   <p>The trade-off is that you are changing your home screen. If you would rather not, use route 2.</p>""", "launcher"),
    ("Route 2: ADB over Wi-Fi", """<p>ADB is Android's developer tool. You run it once, on a computer that is on the
    same Wi-Fi network as the TV, and the setting then stays on the TV.</p>
 
    <h3>1. Install ADB on your computer</h3>
-   <p>ADB ships in Google's <strong>platform-tools</strong>. Pick the line for your system and run it in a terminal
-   (on Windows, open <strong>PowerShell</strong> from the Start menu):</p>
-   <pre><code># macOS (Homebrew)
-brew install --cask android-platform-tools
-
-# Windows (PowerShell)
-winget install Google.PlatformTools
-
-# Debian / Ubuntu
-sudo apt install adb</code></pre>
+   <p>ADB ships in Google's <strong>platform-tools</strong>. Run the line for your system in a terminal<span data-os="win">
+   (open <strong>PowerShell</strong> from the Start menu)</span><span data-os="mac"> (open <strong>Terminal</strong>
+   from Launchpad or Spotlight)</span>:</p>
+   <pre data-os="mac"><code>brew install --cask android-platform-tools</code></pre>
+   <pre data-os="win"><code>winget install Google.PlatformTools</code></pre>
+   <pre data-os="linux"><code>sudo apt install adb</code></pre>
    <p>Open a <strong>new</strong> terminal window and check it worked:</p>
    <pre><code>adb version</code></pre>
-   <p>If you see <code>command not found: adb</code> (macOS) or <code>'adb' is not recognized</code>
-   (Windows), see the fixes below.</p>
-   <p><strong>Windows without winget:</strong> download <em>SDK Platform-Tools for Windows</em> from
+   <p>If you see <code data-os="mac linux">command not found: adb</code><code data-os="win">'adb' is not recognized</code>,
+   see the fixes below.</p>
+   <p data-os="win"><strong>Windows without winget:</strong> download <em>SDK Platform-Tools for Windows</em> from
    <a href="https://developer.android.com/tools/releases/platform-tools" rel="noopener">developer.android.com/tools/releases/platform-tools</a>,
    right-click the zip and choose <strong>Extract All</strong>, then open the extracted
    <code>platform-tools</code> folder, click its address bar, type <code>powershell</code> and press Enter.
@@ -153,7 +149,7 @@ adb shell settings put secure screensaver_enabled 1</code></pre>
    under <strong>Ambient screensaver</strong>). If Start now does nothing, go to the next section.</p>
    <p>The setting survives restarts. A system update can reset it, in which case run the two
    <code>settings put</code> lines again. To undo it, run
-   <code>adb shell settings delete secure screensaver_components</code>.</p>"""),
+   <code>adb shell settings delete secure screensaver_components</code>.</p>""", "adb"),
    ("If Start now does nothing (TCL and some other brands)", """<p>Some manufacturers add their own gatekeeper that refuses to start any app in the background
    unless it has been given an <strong>auto-start</strong> permission. The screensaver is exactly that:
    the TV starts it for you. TCL TVs do this, and so can others. The signs are that the settings above
@@ -166,16 +162,17 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    Look in the TV's own settings for an <strong>Auto-start</strong> or <strong>App permissions</strong> screen
    and allow Art Frame TV there.</p>
    <p>If you are comfortable reading logs, this confirms the diagnosis. Run
-   <code>adb logcat -c</code>, press Start now, then <code>adb logcat -d | grep -i "forbid bind"</code>
-   (on Windows PowerShell, <code>adb logcat -d | Select-String "forbid bind"</code>).
-   A line mentioning <code>Unable to bind dream service</code> means the TV refused to start it.</p>"""),
-   ("When ADB fails", """<h3>command not found: adb (macOS) or 'adb' is not recognized (Windows)</h3>
+   <code>adb logcat -c</code>, press Start now, then <code data-os="mac linux">adb logcat -d | grep -i "forbid bind"</code><code data-os="win">adb logcat -d | Select-String "forbid bind"</code>.
+   A line mentioning <code>Unable to bind dream service</code> means the TV refused to start it.</p>""", "adb"),
+   ("When ADB fails", """<h3 data-os="mac linux">command not found: adb</h3>
+   <h3 data-os="win">'adb' is not recognized</h3>
    <p>The tools are not on your PATH, or your terminal opened before they were installed. Close
    the terminal, open a new one and try <code>adb version</code> again. Terminals that were already open
-   do not notice newly installed commands. On Windows, if a new PowerShell still cannot find it, use the
-   manual download above and run <code>.\\adb</code> from inside the <code>platform-tools</code> folder.</p>
+   do not notice newly installed commands. <span data-os="win">If a new PowerShell still cannot find it, use the
+   manual download above and run <code>.\\adb</code> from inside the <code>platform-tools</code> folder.</span></p>
 
-   <h3>no such file or directory: tv-ip (macOS) or the '&lt;' operator is reserved (Windows)</h3>
+   <h3 data-os="mac linux">no such file or directory: tv-ip</h3>
+   <h3 data-os="win">The '&lt;' operator is reserved for future use</h3>
    <p>You typed a placeholder literally. In many guides <code>&lt;tv-ip&gt;</code> stands for your TV's
    address, and the shell reads the <code>&lt;</code> as a file redirect. Replace the whole thing,
    brackets included, with the address from the TV.</p>
@@ -190,8 +187,7 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    <li><strong>Restart the ADB server.</strong> A stale background process is the most common cause. Run
    <pre><code>adb kill-server</code></pre> then pair again. The server restarts by itself.</li>
    <li><strong>Keep the TV awake.</strong> If the dialog closes or the screen sleeps, the code is gone.</li>
-   <li><strong>Security software.</strong> If it still fails while <code>nc -z</code> reaches the port (on Windows,
-   <code>Test-NetConnection</code> says <code>True</code>), use the relay in the section below.</li>
+   <li><strong>Security software.</strong> If it still fails while <code data-os="mac linux">nc -z</code><code data-os="win">Test-NetConnection</code> reaches the port<span data-os="win"> (it says <code>True</code>)</span>, use the relay in the section below.</li>
    </ol>
    <p>A wrong <em>code</em> usually reports a plain failure to pair instead.</p>
 
@@ -211,18 +207,15 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    <p>Some VPNs and antivirus suites filter network traffic per application. They can block
    <code>adb</code> while <code>ping</code> and everything else works. You can tell it is happening if a
    plain connection to the TV's port succeeds but ADB fails:</p>
-   <pre><code># macOS / Linux
-nc -z -v 192.168.1.50 41234
-
-# Windows (PowerShell)
-Test-NetConnection 192.168.1.50 -Port 41234
-
+   <pre data-os="mac linux"><code>nc -z -v 192.168.1.50 41234
 adb connect 192.168.1.50:41234</code></pre>
-   <p>If the first check succeeds (<code>nc</code> says <em>succeeded</em>, or Windows shows
-   <code>TcpTestSucceeded : True</code>) and ADB says <em>No route to host</em> or <em>cannot connect</em>,
-   the network is fine and something is filtering ADB. On Windows that is usually a third-party antivirus
+   <pre data-os="win"><code>Test-NetConnection 192.168.1.50 -Port 41234
+adb connect 192.168.1.50:41234</code></pre>
+   <p>If the first check succeeds (<span data-os="mac linux"><code>nc</code> says <em>succeeded</em></span><span data-os="win">Windows shows
+   <code>TcpTestSucceeded : True</code></span>) and ADB says <em>No route to host</em> or <em>cannot connect</em>,
+   the network is fine and something is filtering ADB.<span data-os="win"> On Windows that is usually a third-party antivirus
    or VPN rather than Windows Defender Firewall; if Defender asks whether to let <code>adb.exe</code>
-   through, allow it on <strong>Private networks</strong>. Pausing the filter works, but the filter is often a system extension
+   through, allow it on <strong>Private networks</strong>.</span> Pausing the filter works, but the filter is often a system extension
    that keeps running after you disconnect a VPN, so it may need to be switched off in the security
    software itself. If you would rather leave it on, forward the ports through Python, which these filters
    normally allow. Save this as <code>relay.py</code>:</p>
@@ -265,18 +258,15 @@ for pair in sys.argv[2:]:
     local, remote = map(int, pair.split(":"))
     threading.Thread(target=serve, args=(local, remote), daemon=True).start()
 threading.Event().wait()</code></pre>
-   <p>You need Python 3 for this (on Windows, install it from the Microsoft Store or python.org, and tick
-   <em>Add python.exe to PATH</em>). Run the script with the TV's address, then one <code>local:remote</code>
+   <p>You need Python 3 for this <span data-os="win">(install it from the Microsoft Store or python.org, and tick
+   <em>Add python.exe to PATH</em>)</span><span data-os="mac linux">(it is already installed on most Macs and Linux systems; check with <code>python3 --version</code>)</span>. Run the script with the TV's address, then one <code>local:remote</code>
    pair for the pairing port and one for the connect port, and leave it running:</p>
-   <pre><code># macOS / Linux
-python3 relay.py 192.168.1.50 55001:37215 55002:41234
-
-# Windows (PowerShell)
-py relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
+   <pre data-os="mac linux"><code>python3 relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
+   <pre data-os="win"><code>py relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
    <p>In a second terminal, use <code>127.0.0.1</code> and the local ports in place of the TV's address:</p>
    <pre><code>adb pair 127.0.0.1:55001 123456
 adb connect 127.0.0.1:55002</code></pre>
-   <p>Everything from step 5 then works as normal. Stop the script with Ctrl+C when you are done.</p>"""),
+   <p>Everything from step 5 then works as normal. Stop the script with Ctrl+C when you are done.</p>""", "adb"),
   ],
   faq=[
    ("Do I have to set Art Frame TV as the screensaver?",
@@ -621,6 +611,49 @@ const nav=document.getElementById('nav');const f=()=>{nav.dataset.stuck=String(s
 </html>
 """
 
+PICKER = """        <div class="picker" id="picker" hidden>
+          <div class="picker-group" data-group="route">
+            <span class="picker-label">How</span>
+            <button type="button" data-value="adb">ADB (computer)</button>
+            <button type="button" data-value="launcher">Launcher (no computer)</button>
+          </div>
+          <div class="picker-group" data-group="os">
+            <span class="picker-label">Your computer</span>
+            <button type="button" data-value="mac">macOS</button>
+            <button type="button" data-value="win">Windows</button>
+            <button type="button" data-value="linux">Linux</button>
+          </div>
+        </div>
+        <script>
+        (function(){
+          var picker=document.getElementById('picker'); if(!picker) return;
+          var st={route:'adb',os:'mac'};
+          try{
+            var ua=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||'';
+            if(/win/i.test(ua)) st.os='win'; else if(/linux|x11/i.test(ua)&&!/android/i.test(navigator.userAgent)) st.os='linux';
+            var saved=JSON.parse(localStorage.getItem('setupPrefs')||'{}');
+            if(saved.os) st.os=saved.os; if(saved.route) st.route=saved.route;
+          }catch(e){}
+          function apply(){
+            document.querySelectorAll('[data-os]:not(button)').forEach(function(el){
+              el.hidden = el.getAttribute('data-os').split(' ').indexOf(st.os)<0 || st.route!=='adb';
+            });
+            document.querySelectorAll('[data-route]').forEach(function(el){ el.hidden = el.getAttribute('data-route')!==st.route; });
+            picker.querySelector('[data-group=os]').hidden = st.route!=='adb';
+            picker.querySelectorAll('button').forEach(function(b){
+              var on = st[b.parentNode.getAttribute('data-group')]===b.getAttribute('data-value');
+              b.setAttribute('aria-pressed', on); });
+            try{ localStorage.setItem('setupPrefs', JSON.stringify(st)); }catch(e){}
+          }
+          picker.addEventListener('click',function(e){
+            var b=e.target.closest('button'); if(!b) return;
+            st[b.parentNode.getAttribute('data-group')]=b.getAttribute('data-value'); apply();
+          });
+          function init(){ picker.hidden=false; apply(); }
+          if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+        })();
+        </script>"""
+
 def fmt_date(iso):
     import datetime
     d = datetime.date.fromisoformat(iso)
@@ -656,11 +689,15 @@ os.makedirs(OUT, exist_ok=True)
 
 for a in ARTICLES:
     canon = f"{SITE}/articles/{a['slug']}"
+    def rattr(sec):
+        return f' data-route="{sec[2]}"' if len(sec) > 2 else ""
     toc = "\n".join(
-        f'          <li><a href="#{slug(t)}">{t}</a></li>' for t, _ in a["sections"])
+        f'          <li{rattr(x)}><a href="#{slug(x[0])}">{x[0]}</a></li>' for x in a["sections"])
     body = "\n".join(
-        f'        <h2 id="{slug(t)}">{t}</h2>\n        {c.strip()}'
-        for t, c in a["sections"])
+        f'        <section{rattr(x)}>\n        <h2 id="{slug(x[0])}">{x[0]}</h2>\n        {x[1].strip()}\n        </section>'
+        for x in a["sections"])
+    if a.get("picker"):
+        body = PICKER + "\n" + body
     faq = "\n".join(
         f'''        <details>
           <summary>{html.escape(q)}</summary>

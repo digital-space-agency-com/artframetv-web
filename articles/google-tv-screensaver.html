@@ -87,6 +87,7 @@ what works on each, in order of how much effort it takes.</p>
       </aside>
 
       <article class="prose">
+        <section>
         <h2 id="google-tv-ambient-mode-is-the-screensaver">Google TV: Ambient Mode is the screensaver</h2>
         <p>On Google TV there is no "screensaver"
    menu. What idles on screen is <strong>Ambient Mode</strong>, and Google reserves it for its own
@@ -95,11 +96,15 @@ what works on each, in order of how much effort it takes.</p>
    Google Photos, Art gallery (Google's own curated set), and an Experimental option. Third-party
    apps do not appear in that list, which is the single most common reason people conclude their
    screensaver app is broken when it is installed correctly.</p>
+        </section>
+        <section>
         <h2 id="android-tv-the-classic-screensaver-menu">Android TV: the classic screensaver menu</h2>
         <p>Older Android TV builds keep the standard
    Android daydream picker. Go to <strong>Settings → Device Preferences → Screen saver</strong>.
    Any installed app that registers a <code>DreamService</code> shows up here, so you can select it
    directly. You can also set how long the TV waits before it starts.</p>
+        </section>
+        <section>
         <h2 id="using-a-third-party-screensaver-on-google-tv">Using a third-party screensaver on Google TV</h2>
         <p>Two routes work, and neither requires
    rooting the TV.</p>
@@ -120,12 +125,15 @@ what works on each, in order of how much effort it takes.</p>
 adb shell settings put secure screensaver_enabled 1</code></pre>
    <p>This survives reboots. It does not always survive a system update, so keep the command
    somewhere you can find it again.</p>
+        </section>
+        <section>
         <h2 id="turning-the-screensaver-off">Turning the screensaver off</h2>
         <p>On Google TV, <strong>Settings → System → Ambient mode</strong>
    and set the timer to Off, or set the source to something you do not mind seeing. On Android TV,
    <strong>Settings → Device Preferences → Screen saver → When to start</strong> and choose Never.
    Note that many TVs have a separate panel-level sleep timer; turning off the screensaver does not
    stop the TV switching itself off.</p>
+        </section>
 
         <h2 id="faq">Common questions</h2>
         <div class="faq" style="border-top:0">
