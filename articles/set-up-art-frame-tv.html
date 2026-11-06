@@ -26,7 +26,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Article","headline":"How to set up Art Frame TV as your screensaver","description":"Step-by-step setup for Art Frame TV on Google TV and Android TV: the no-computer launcher route, the ADB route with pairing, and fixes for the errors people actually hit.",
- "mainEntityOfPage":"https://getframetv.com/articles/set-up-art-frame-tv","datePublished":"2026-10-20","dateModified":"2026-11-05",
+ "mainEntityOfPage":"https://getframetv.com/articles/set-up-art-frame-tv","datePublished":"2026-10-20","dateModified":"2026-11-06",
  "author":{"@type":"Organization","name":"Digital Space Agency UG"},
  "publisher":{"@type":"Organization","name":"Art Frame TV"}},
 {"@type":"BreadcrumbList","itemListElement":[
@@ -72,7 +72,7 @@
 because Google TV keeps its own Ambient Mode in the way. This guide covers every route, starting
 with the ones that need no computer, and the fixes for the errors that stop people on the ADB route.</p>
       <div class="doc-meta">
-        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-11-05">5 November 2026</time></span>
+        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-11-06">6 November 2026</time></span>
         <span><strong style="color:var(--muted)">For</strong> Google TV &amp; Android TV</span>
       </div>
     </div>
@@ -118,7 +118,8 @@ with the ones that need no computer, and the fixes for the errors that stop peop
    same Wi-Fi network as the TV, and the setting then stays on the TV.</p>
 
    <h3>1. Install ADB on your computer</h3>
-   <p>ADB ships in Google's <strong>platform-tools</strong>. Pick the line for your system and run it in a terminal:</p>
+   <p>ADB ships in Google's <strong>platform-tools</strong>. Pick the line for your system and run it in a terminal
+   (on Windows, open <strong>PowerShell</strong> from the Start menu):</p>
    <pre><code># macOS (Homebrew)
 brew install --cask android-platform-tools
 
@@ -129,7 +130,14 @@ winget install Google.PlatformTools
 sudo apt install adb</code></pre>
    <p>Open a <strong>new</strong> terminal window and check it worked:</p>
    <pre><code>adb version</code></pre>
-   <p>If you see <code>command not found: adb</code>, see the fixes below.</p>
+   <p>If you see <code>command not found: adb</code> (macOS) or <code>'adb' is not recognized</code>
+   (Windows), see the fixes below.</p>
+   <p><strong>Windows without winget:</strong> download <em>SDK Platform-Tools for Windows</em> from
+   <a href="https://developer.android.com/tools/releases/platform-tools" rel="noopener">developer.android.com/tools/releases/platform-tools</a>,
+   right-click the zip and choose <strong>Extract All</strong>, then open the extracted
+   <code>platform-tools</code> folder, click its address bar, type <code>powershell</code> and press Enter.
+   In that window, put <code>.\</code> in front of every <code>adb</code> command in this guide, for example
+   <code>.\adb version</code>.</p>
 
    <h3>2. Turn on Wireless debugging on the TV</h3>
    <p>Go to <strong>Settings → System → About</strong> and click <strong>Android TV OS build</strong>
@@ -177,15 +185,17 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    Look in the TV's own settings for an <strong>Auto-start</strong> or <strong>App permissions</strong> screen
    and allow Art Frame TV there.</p>
    <p>If you are comfortable reading logs, this confirms the diagnosis. Run
-   <code>adb logcat -c</code>, press Start now, then <code>adb logcat -d | grep -i "forbid bind"</code>.
+   <code>adb logcat -c</code>, press Start now, then <code>adb logcat -d | grep -i "forbid bind"</code>
+   (on Windows PowerShell, <code>adb logcat -d | Select-String "forbid bind"</code>).
    A line mentioning <code>Unable to bind dream service</code> means the TV refused to start it.</p>
         <h2 id="when-adb-fails">When ADB fails</h2>
-        <h3>command not found: adb</h3>
+        <h3>command not found: adb (macOS) or 'adb' is not recognized (Windows)</h3>
    <p>The tools are not on your PATH, or your terminal opened before they were installed. Close
    the terminal, open a new one and try <code>adb version</code> again. Terminals that were already open
-   do not notice newly installed commands.</p>
+   do not notice newly installed commands. On Windows, if a new PowerShell still cannot find it, use the
+   manual download above and run <code>.\adb</code> from inside the <code>platform-tools</code> folder.</p>
 
-   <h3>no such file or directory: tv-ip</h3>
+   <h3>no such file or directory: tv-ip (macOS) or the '&lt;' operator is reserved (Windows)</h3>
    <p>You typed a placeholder literally. In many guides <code>&lt;tv-ip&gt;</code> stands for your TV's
    address, and the shell reads the <code>&lt;</code> as a file redirect. Replace the whole thing,
    brackets included, with the address from the TV.</p>
@@ -200,8 +210,8 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    <li><strong>Restart the ADB server.</strong> A stale background process is the most common cause. Run
    <pre><code>adb kill-server</code></pre> then pair again. The server restarts by itself.</li>
    <li><strong>Keep the TV awake.</strong> If the dialog closes or the screen sleeps, the code is gone.</li>
-   <li><strong>Security software.</strong> If it still fails while <code>nc -z</code> reaches the port, use the
-   relay in the section below.</li>
+   <li><strong>Security software.</strong> If it still fails while <code>nc -z</code> reaches the port (on Windows,
+   <code>Test-NetConnection</code> says <code>True</code>), use the relay in the section below.</li>
    </ol>
    <p>A wrong <em>code</em> usually reports a plain failure to pair instead.</p>
 
@@ -221,10 +231,18 @@ adb shell appops get team.dsa.artframetv AUTO_START</code></pre>
    <p>Some VPNs and antivirus suites filter network traffic per application. They can block
    <code>adb</code> while <code>ping</code> and everything else works. You can tell it is happening if a
    plain connection to the TV's port succeeds but ADB fails:</p>
-   <pre><code>nc -z -v 192.168.1.50 41234     # macOS / Linux
+   <pre><code># macOS / Linux
+nc -z -v 192.168.1.50 41234
+
+# Windows (PowerShell)
+Test-NetConnection 192.168.1.50 -Port 41234
+
 adb connect 192.168.1.50:41234</code></pre>
-   <p>If <code>nc</code> says <em>succeeded</em> and ADB says <em>No route to host</em>, the network is fine
-   and something is filtering ADB. Pausing the filter works, but the filter is often a system extension
+   <p>If the first check succeeds (<code>nc</code> says <em>succeeded</em>, or Windows shows
+   <code>TcpTestSucceeded : True</code>) and ADB says <em>No route to host</em> or <em>cannot connect</em>,
+   the network is fine and something is filtering ADB. On Windows that is usually a third-party antivirus
+   or VPN rather than Windows Defender Firewall; if Defender asks whether to let <code>adb.exe</code>
+   through, allow it on <strong>Private networks</strong>. Pausing the filter works, but the filter is often a system extension
    that keeps running after you disconnect a VPN, so it may need to be switched off in the security
    software itself. If you would rather leave it on, forward the ports through Python, which these filters
    normally allow. Save this as <code>relay.py</code>:</p>
@@ -267,9 +285,14 @@ for pair in sys.argv[2:]:
     local, remote = map(int, pair.split(":"))
     threading.Thread(target=serve, args=(local, remote), daemon=True).start()
 threading.Event().wait()</code></pre>
-   <p>Run it with the TV's address, then one <code>local:remote</code> pair for the pairing port and one
-   for the connect port, and leave it running:</p>
-   <pre><code>python3 relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
+   <p>You need Python 3 for this (on Windows, install it from the Microsoft Store or python.org, and tick
+   <em>Add python.exe to PATH</em>). Run the script with the TV's address, then one <code>local:remote</code>
+   pair for the pairing port and one for the connect port, and leave it running:</p>
+   <pre><code># macOS / Linux
+python3 relay.py 192.168.1.50 55001:37215 55002:41234
+
+# Windows (PowerShell)
+py relay.py 192.168.1.50 55001:37215 55002:41234</code></pre>
    <p>In a second terminal, use <code>127.0.0.1</code> and the local ports in place of the TV's address:</p>
    <pre><code>adb pair 127.0.0.1:55001 123456
 adb connect 127.0.0.1:55002</code></pre>
