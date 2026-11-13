@@ -542,6 +542,91 @@ already own. Here is an honest split.""",
    ("Do I need a special TV to display art?",
     "No. The main hardware advantage of an art TV is a matte anti-glare panel, which matters most in a bright room. Everything else is software or a clip-on bezel."),
   ]),
+ dict(
+  slug="samsung-frame-tv-alternative",
+  kw="samsung frame tv alternative", vol=170, kd=4,
+  updated="2026-11-13",
+  title="Samsung Frame TV alternatives: art mode on the TV you already own",
+  desc="Three ways to get a Frame-style art display without buying The Frame: a clip-on bezel, an art-mode app on Google TV, or both. What each costs and what you give up.",
+  intro="""The Frame is a good product with a price to match. If what you want is a television that
+looks like a framed print when it is idle, you have three realistic alternatives, and one of them
+costs nothing. Here is how they compare, including the one thing none of them can fix.""",
+  sections=[
+   ("The short answer", """<p>If you already own a Google TV or Android TV, the cheapest alternative to a
+   Frame TV is an app that frames your photos and art on the idle screen. Add a clip-on bezel if the
+   black plastic rim bothers you. You will not match The Frame's matte anti-glare panel, which only
+   matters in a bright room.</p>"""),
+   ("Option 1: an art-mode app on a Google TV or Android TV", """<p>The software side of art mode, which is
+   most of what people notice, runs on any Google TV. An app such as
+   <a href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Art Frame TV</a> mounts
+   your Google Photos or public-domain art inside a rendered frame and passe-partout mat and runs it as
+   the screensaver. It is free, with no account and no ads.</p>
+   <p><strong>What you give up:</strong> the brightness and motion sensor, and the matte panel.</p>"""),
+   ("Option 2: a clip-on bezel", """<p>Third parties sell magnetic or snap-on wooden bezels that fit
+   popular TV sizes, typically from around $100. This changes how the TV looks when it is off as well as
+   when it is showing art, which software cannot do. Pair it with Option 1 for the closest overall match.</p>"""),
+   ("Option 3: a different art-first TV", """<p>Other makers sell lifestyle TVs with art modes and
+   matte-style panels. These close the hardware gap but cost more than a standard TV, so they only make
+   sense if you are buying a new set anyway.</p>"""),
+   ("What no alternative fixes", """<p>A glossy panel reflects the room. If your TV faces a large window,
+   no software setting changes that, and it is the one case where The Frame's panel earns its price.
+   Everywhere else, lower the backlight to 25-35%, use a warm picture mode, and mat the image. Our guide to
+   <a href="/articles/art-mode-without-a-frame-tv">art mode without buying a Frame TV</a> walks
+   through each step.</p>"""),
+  ],
+  faq=[
+   ("What is the best Samsung Frame TV alternative?",
+    "For most people, an art-mode app on a TV they already own, optionally with a clip-on bezel. It costs little or nothing, and the main thing you lose is the matte anti-glare panel."),
+   ("Can I make a normal TV look like a Frame TV?",
+    "Mostly. Lower the backlight, use a warm picture mode, and display art inside a matted frame rather than full screen. A clip-on bezel completes the look when the TV is off."),
+   ("Is there a free alternative to the Samsung Art Store?",
+    "Yes. Many museums publish public-domain works free to use, and an art-mode app can display them. See our guide to free art for Frame-style TVs."),
+   ("Do alternatives work on Google TV?",
+    "Yes. Art Frame TV runs on Google TV and Android TV, and works as the screensaver or from the app."),
+  ]),
+ dict(
+  slug="google-tv-ambient-mode",
+  kw="google tv ambient mode", vol=140, kd=6,
+  updated="2026-11-13",
+  title="Google TV Ambient Mode: how to set it up, change it and turn it off",
+  desc="Where Ambient Mode lives on Google TV, what the three sources do, how to change the timer, and why third-party screensaver apps don't appear in the list.",
+  intro="""Ambient Mode is what Google TV shows when you stop using it. It is easy to find once you
+know where to look, and easy to get stuck on the wrong source. Here is how it works and how to change
+what it shows.""",
+  sections=[
+   ("What Ambient Mode is", """<p>On Google TV, Ambient Mode replaces the classic screensaver. It starts
+   after a period of inactivity and shows photos, art or other content full screen until you press a
+   button on the remote.</p>"""),
+   ("Where to find it", """<p>Go to <strong>Settings → System → Ambient mode</strong>. Menu names shift a
+   little between TV makers and software versions, so if you do not see it, check
+   <strong>Settings → Display &amp; Sound</strong> as well.</p>"""),
+   ("Choosing a source", """<p>Under <strong>Source</strong> you get Google Photos, Art gallery, and an
+   Experimental option.</p>
+   <ul>
+     <li><strong>Google Photos</strong> shows your own albums, which you pick in the Google Home app.</li>
+     <li><strong>Art gallery</strong> is Google's curated set.</li>
+     <li><strong>Experimental</strong> is a fallback if the others do not work for you.</li>
+   </ul>
+   <p>If your photos do not appear, see <a href="/articles/google-photos-on-tv">Google Photos on TV</a>.</p>"""),
+   ("Changing or turning off the timer", """<p>In the same Ambient mode screen you can set how long the TV
+   waits before it starts, or turn it off. A separate panel sleep timer can still switch the TV off
+   independently, so check both if the screen goes dark sooner than you expect.</p>"""),
+   ("Using your own screensaver instead", """<p>Third-party apps do not appear in the Ambient mode source
+   list on Google TV, which is why many people think their screensaver app is broken. There are two
+   working routes: a launcher that exposes the setting, or a one-time ADB command. Both are explained in
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>, and the full
+   walkthrough for Art Frame TV is in <a href="/articles/set-up-art-frame-tv">the setup guide</a>.</p>"""),
+  ],
+  faq=[
+   ("Where is Ambient Mode on Google TV?",
+    "Settings, then System, then Ambient mode. On some TVs it sits under Display and Sound."),
+   ("How do I turn off Ambient Mode?",
+    "Open Ambient mode in Settings and set the timer to Off, or choose a source you are happy to see."),
+   ("Why can't I choose my own screensaver app?",
+    "Google TV limits the Ambient mode source list to Google's own options. A launcher with a screensaver override or one ADB command sets a third-party screensaver."),
+   ("Why are my Google Photos not showing in Ambient Mode?",
+    "Albums are chosen in the Google Home app, not on the TV. See our Google Photos on TV guide for the usual fixes."),
+  ]),
 ]
 
 HEAD = """<!doctype html>
@@ -589,7 +674,7 @@ NAV = """<header class="nav" id="nav">
       <li><a href="/articles/">Guides</a></li>
       <li><a href="/privacy">Privacy</a></li>
     </ul>
-    <a class="btn btn-ghost btn-sm" href="/#get">Get the app</a>
+    <a class="btn btn-ghost btn-sm" href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play</a>
   </div>
 </header>
 """
@@ -742,7 +827,7 @@ for a in ARTICLES:
         <div class="callout" style="margin-top:44px">
           <p><strong>Art Frame TV</strong> puts your photos and gallery classics inside
           photorealistic frames with real passe-partout matting, on Google TV and Android TV.
-          Free, no account, no ads. <a href="/">See how it works →</a></p>
+          Free, no account, no ads. <a href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play →</a> · <a href="/">See how it works</a></p>
         </div>
 
         <h2 id="more">More guides</h2>

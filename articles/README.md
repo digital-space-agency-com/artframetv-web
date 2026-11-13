@@ -20,6 +20,8 @@ Volumes are in `articles.py` next to each entry so the choices stay auditable.
 | `google-photos-on-tv` | google tv screensaver photos | 90 | 27 | Carries the troubleshooting long tail ("not showing google photos"), which converts well. |
 | `what-is-a-passe-partout` | passe partout matting | 90 | 0 | Genuine subject expertise, and it is the product's whole differentiator. |
 | `free-art-for-frame-tv` | free art for samsung frame tv | 70 | 0 | Samsung Frame owners avoiding the Art Store subscription — the closest adjacent audience there is. |
+| `samsung-frame-tv-alternative` | samsung frame tv alternative | 170 | 4 | Buyers comparing options; complements `art-mode-without-a-frame-tv`, which explains the hardware/software split. (OpenSEO, 13 Nov 2026) |
+| `google-tv-ambient-mode` | google tv ambient mode | 140 | 6 | Where Ambient Mode lives and why third-party screensavers don't show; feeds the setup guide. (OpenSEO, 13 Nov 2026) |
 
 ## Three findings that shaped this
 
@@ -37,4 +39,4 @@ Volumes are in `articles.py` next to each entry so the choices stay auditable.
 ## On-page
 
 Each article ships `Article` + `BreadcrumbList` + `FAQPage` JSON-LD, a sticky table of contents,
-cross-links to every sibling, and one link back to the product. `sitemap.xml` lists all nine URLs.
+cross-links to every sibling, and one link back to the product. `sitemap.xml` lists all twelve URLs.
