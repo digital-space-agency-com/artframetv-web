@@ -627,6 +627,134 @@ what it shows.""",
    ("Why are my Google Photos not showing in Ambient Mode?",
     "Albums are chosen in the Google Home app, not on the TV. See our Google Photos on TV guide for the usual fixes."),
   ]),
+ dict(
+  slug="turn-android-tv-into-art",
+  kw="turn tv into art", vol=0, kd=0,
+  published="2026-11-16", updated="2026-11-16",
+  title="How to turn your Android TV into art",
+  desc="Turn an Android TV or Google TV into framed wall art in four steps: dim the panel, pick public-domain art, add a real mat and frame, and let it run as the screensaver.",
+  intro="""You do not need a special television to have art on the wall. A Google TV or Android TV
+you already own can show a painting that reads as a framed print, as long as you fix the brightness,
+the framing and the source of the art. Here are the four steps, in the order they matter.""",
+  sections=[
+   ("Step 1: dim the panel", """<p>A TV ships bright enough for a showroom. Art does not glow, it reflects light, so the
+   biggest single change is to turn the backlight down to <strong>25 to 35%</strong> and set the picture mode to
+   <strong>Warm</strong> or <strong>Filmmaker Mode</strong>. Do this before anything else. A dim, warm screen already
+   looks more like paper than a bright, blue one.</p>"""),
+   ("Step 2: choose art you are allowed to display", """<p>Millions of paintings are in the public domain, and
+   several museums publish high-resolution photographs of them for anyone to use, including the Met's Open Access
+   collection and Wikimedia Commons. That means you can show a famous painting on your own TV without a
+   subscription. Our guide to <a href="/articles/free-art-for-frame-tv">free art for Frame-style TVs</a> lists the
+   sources worth using, and what resolution to aim for.</p>"""),
+   ("Step 3: mat and frame it, do not stretch it", """<p>Paintings are rarely 16:9. Cropping loses part of the picture and
+   black bars look like a screen. A framer's answer is a <strong>mat</strong>: a card border with a bevelled cut edge,
+   slightly wider at the bottom than the top. Add a frame moulding around it and the whole screen reads as one
+   framed print. <a href="/articles/what-is-a-passe-partout">What a passe-partout is and why the bevel matters</a>
+   explains the detail.</p>
+   <p><a href="/">Art Frame TV</a> does this for you on Google TV and Android TV. It ships with 30 bundled images,
+   including public-domain masterworks, and draws a bevelled mat, a frame and a soft shadow around each one.
+   The free version includes all of that with a Dark Walnut frame or no frame.</p>"""),
+   ("Step 4: let it appear by itself", """<p>You can open the app from the home screen any time, so the TV becomes a
+   picture on demand. If you want the art to appear when the TV goes idle, set it as the screensaver. On Android TV
+   that is <strong>Settings → Device Preferences → Screen saver</strong>. Google TV hides that menu behind Ambient
+   Mode, so it needs one extra step, covered in <a href="/articles/set-up-art-frame-tv">the setup guide</a>.</p>"""),
+   ("What you will not get", """<p>A glossy panel reflects the room, and no software setting makes it matte. If the
+   TV faces a window, move it or accept some glare. Our comparison of
+   <a href="/articles/samsung-frame-tv-alternative">Samsung Frame alternatives</a> covers that gap honestly.</p>"""),
+  ],
+  faq=[
+   ("Can any Android TV show art when it is idle?",
+    "Yes. Any Google TV or Android TV running Android 8.0 or newer can run an art app, either from its icon or as the screensaver."),
+   ("Is it free to turn my TV into art?",
+    "It can be. Art Frame TV's free version includes 30 bundled images, the full framing look with a Dark Walnut frame or no frame, and the screensaver. There is no subscription. Extra frames, mats and art packs are one-time purchases."),
+   ("Will this look like a Samsung Frame TV?",
+    "Close, apart from the panel finish. A Frame has a matte anti-glare screen that a normal TV cannot match, but dimming the backlight and matting the image gets most of the way there."),
+   ("Why does my TV look like a screen and not a picture?",
+    "Usually brightness and framing. Drop the backlight to 25 to 35 percent, use a warm picture mode, and put the image inside a mat instead of filling the screen or leaving black bars."),
+  ]),
+ dict(
+  slug="free-art-screensaver-android-tv",
+  kw="free art screensaver android tv", vol=0, kd=0,
+  published="2026-11-16", updated="2026-11-16",
+  title="Free art screensaver for Android TV and Google TV",
+  desc="How to get a free art screensaver on Android TV or Google TV: what free actually includes, what is a paid extra, and how to switch it on.",
+  intro="""A good art screensaver should not need an account, a subscription or an ad break. Art Frame TV is
+free to install and use, with optional one-time purchases for more frames, mats and art. This page is
+plain about which is which.""",
+  sections=[
+   ("What is free", """<p>The free version of <a href="/">Art Frame TV</a> includes:</p>
+   <ul>
+     <li>All 30 bundled images, including public-domain masterworks</li>
+     <li>The full framing look: a bevelled mat, depth shadow and glazing</li>
+     <li>A Dark Walnut frame, or no frame</li>
+     <li>The screensaver, with no time limit</li>
+   </ul>
+   <p>There is no account to create and there are no ads.</p>"""),
+   ("What costs extra", """<p>Studio Unlock is a <strong>one-time</strong> purchase. It adds your own Google Photos
+   and shared albums, all six mouldings, all six mat colours and finer control of the look. Frame packs and art packs
+   are separate one-time purchases. Nothing renews, and nothing is required to keep using the free version.</p>"""),
+   ("Where the art comes from", """<p>The bundled artwork is in the public domain. The works are sourced from
+   Wikimedia Commons and the Met's Open Access collection, so there is no copyright issue in showing them on your
+   wall. Read more in our guide to <a href="/articles/free-art-for-frame-tv">free art for your TV</a>.</p>"""),
+   ("How to switch it on as a screensaver", """<p>Install Art Frame TV from Google Play on the TV. On Android TV, pick it
+   under <strong>Settings → Device Preferences → Screen saver</strong>. On Google TV, Google's Ambient Mode does not
+   list third-party apps, so you set it once with a launcher that has a screensaver override, or with one ADB command.
+   The <a href="/articles/set-up-art-frame-tv">step-by-step setup guide</a> covers both, and you can always just open
+   the app from its icon.</p>"""),
+   ("Privacy", """<p>The app has no account system and no analytics SDKs, and your photos stay on the TV. The
+   <a href="/privacy">privacy policy</a> has the details.</p>"""),
+  ],
+  faq=[
+   ("Is there a free art screensaver for Android TV?",
+    "Yes. Art Frame TV is free to install and includes 30 bundled images, framing and the screensaver, with no account and no ads."),
+   ("Does the free version have a time limit?",
+    "No. The free version has no time limit and no trial period. The paid options are optional, one-time purchases."),
+   ("Is there a subscription?",
+    "No. Studio Unlock, frame packs and art packs are one-time purchases, and nothing renews."),
+   ("Can I use it as the screensaver on Google TV?",
+    "Yes, with one extra step, because Google TV's Ambient Mode only lists Google's own sources. See the setup guide for the launcher and ADB routes."),
+  ]),
+ dict(
+  slug="best-android-tv-screensaver-art",
+  kw="best android tv screensaver art", vol=0, kd=0,
+  published="2026-11-16", updated="2026-11-16",
+  title="Choosing an art screensaver for Android TV: what to look for",
+  desc="A practical checklist for choosing an art screensaver on Android TV or Google TV: where the art comes from, how it is framed, price model, privacy and whether it works as a real screensaver.",
+  intro="""There are several ways to get art on an idle Android TV, from Google's own Ambient Mode to
+third-party apps. Rather than rank them, here is a checklist that tells you which one suits your TV and your
+taste, plus where Art Frame TV fits.""",
+  sections=[
+   ("1. Can it be your actual screensaver?", """<p>On Google TV, Ambient Mode only lists Google's sources, so a
+   third-party app needs a launcher override or an ADB command to become the screensaver. Check that the app tells
+   you how. If it also works when opened from its icon, you lose nothing by trying it first. See
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>.</p>"""),
+   ("2. Where does the art come from?", """<p>Look for public-domain or properly licensed images. Art from museum
+   open-access collections is free to show on your wall. If an app does not say where its images come from, assume
+   you cannot use them commercially, and ask.</p>"""),
+   ("3. Does it frame the picture?", """<p>Many screensavers show the image full screen. That crops the picture or
+   leaves black bars. A mat and frame makes the TV read as a print. Art Frame TV's whole purpose is this, with a
+   bevelled mat, frame mouldings and a depth shadow.</p>"""),
+   ("4. How does it charge?", """<p>Prefer one-time purchases over subscriptions for something you will leave on a
+   wall. Check what the free version includes, and whether it has a trial that quietly expires. Art Frame TV's free
+   version has no time limit, and its paid options are one-time.</p>"""),
+   ("5. What does it do with your data?", """<p>A screensaver has no reason to need an account. Check the privacy
+   policy, and whether your own photos are uploaded anywhere. Art Frame TV has no account system and keeps photos on
+   the TV.</p>"""),
+   ("6. Will it look good on your panel?", """<p>Whatever you choose, lower the backlight to 25 to 35% and use a warm
+   picture mode. See <a href="/articles/turn-android-tv-into-art">how to turn your Android TV into art</a> for the
+   settings, and the <a href="/articles/samsung-frame-tv-alternative">Samsung Frame alternatives</a> page for how a
+   normal TV compares with a Frame.</p>"""),
+  ],
+  faq=[
+   ("What is the best art screensaver for Android TV?",
+    "It depends on what you value. Choose one that can run as the screensaver, uses properly licensed art, frames the picture, has fair pricing and respects your privacy. Art Frame TV is built around those points."),
+   ("Does Google TV have a built-in art screensaver?",
+    "Yes. Ambient Mode has an Art gallery source with Google's own curated images. It does not add frames or mats, and it does not accept third-party sources."),
+   ("Are art screensavers safe for OLED TVs?",
+    "Static images are the risk. Choose an app that changes the picture regularly or drifts it slightly, and keep the backlight low."),
+   ("Should I pay for a screensaver app?",
+    "Only if the free version proves it is worth it. A one-time purchase for extra frames or art is fairer than a subscription for a wall display."),
+  ]),
 ]
 
 HEAD = """<!doctype html>
@@ -638,13 +766,20 @@ HEAD = """<!doctype html>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#121820">
 <meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="{canon}">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="Art Frame TV">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{site}/images/social-1200x630.png?v=2">
+<meta property="og:image:alt" content="A painting hung on a TV inside a walnut frame with a cream mat">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{site}/images/social-1200x630.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=3">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="48x48" href="/images/icon-48.png?v=3">
@@ -751,9 +886,11 @@ def schema_for(a, canon):
     return f"""<script type="application/ld+json">
 {{"@context":"https://schema.org","@graph":[
 {{"@type":"Article","headline":{jstr(a['title'])},"description":{jstr(a['desc'])},
- "mainEntityOfPage":{jstr(canon)},"datePublished":"2026-10-20","dateModified":"{a.get('updated','2026-10-20')}",
- "author":{{"@type":"Organization","name":"Digital Space Agency UG"}},
- "publisher":{{"@type":"Organization","name":"Art Frame TV"}}}},
+ "mainEntityOfPage":{jstr(canon)},"image":{jstr(SITE + '/images/social-1200x630.png')},
+ "datePublished":"{a.get('published','2026-10-20')}","dateModified":"{a.get('updated','2026-10-20')}",
+ "author":{{"@type":"Organization","name":"Digital Space Agency UG","url":{jstr(SITE + '/')}}},
+ "publisher":{{"@type":"Organization","name":"Art Frame TV","url":{jstr(SITE + '/')},
+  "logo":{{"@type":"ImageObject","url":{jstr(SITE + '/images/icon-192.png')}}}}}}},
 {{"@type":"BreadcrumbList","itemListElement":[
  {{"@type":"ListItem","position":1,"name":"Home","item":{jstr(SITE + '/')}}},
  {{"@type":"ListItem","position":2,"name":"Guides","item":{jstr(SITE + '/articles/')}}},

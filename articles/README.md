@@ -22,6 +22,9 @@ Volumes are in `articles.py` next to each entry so the choices stay auditable.
 | `free-art-for-frame-tv` | free art for samsung frame tv | 70 | 0 | Samsung Frame owners avoiding the Art Store subscription — the closest adjacent audience there is. |
 | `samsung-frame-tv-alternative` | samsung frame tv alternative | 170 | 4 | Buyers comparing options; complements `art-mode-without-a-frame-tv`, which explains the hardware/software split. (OpenSEO, 13 Nov 2026) |
 | `google-tv-ambient-mode` | google tv ambient mode | 140 | 6 | Where Ambient Mode lives and why third-party screensavers don't show; feeds the setup guide. (OpenSEO, 13 Nov 2026) |
+| `turn-android-tv-into-art` | turn android tv into art | n/a | n/a | Added 16 Nov 2026 for the launch. Volume not yet measured; written to the intent in the title. |
+| `free-art-screensaver-android-tv` | free art screensaver android tv | n/a | n/a | Added 16 Nov 2026. States plainly what is free and what is a one-time purchase. |
+| `best-android-tv-screensaver-art` | best android tv screensaver art | n/a | n/a | Added 16 Nov 2026. A buyer's checklist, not a ranking of other apps. |
 
 ## Three findings that shaped this
 

@@ -2,62 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://getframetv.com/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://getframetv.com/articles/turn-android-tv-into-art</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getframetv.com/articles/free-art-screensaver-android-tv</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getframetv.com/articles/best-android-tv-screensaver-art</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getframetv.com/articles/samsung-frame-tv-alternative</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getframetv.com/articles/google-tv-ambient-mode</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getframetv.com/articles/set-up-art-frame-tv</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/google-tv-screensaver</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/google-photos-on-tv</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/free-art-for-frame-tv</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/tv-as-digital-photo-frame</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/what-is-a-passe-partout</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/articles/art-mode-without-a-frame-tv</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://getframetv.com/privacy</loc>
     <lastmod>2026-11-13</lastmod>
     <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://getframetv.com/articles/samsung-frame-tv-alternative</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://getframetv.com/articles/google-tv-ambient-mode</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.7</priority>
   </url>
 </urlset>
