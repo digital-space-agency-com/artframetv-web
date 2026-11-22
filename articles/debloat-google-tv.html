@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debloat Google TV: remove ads and bloatware — Art Frame TV</title>
+<meta name="description" content="How to debloat a Google TV: turn off ad personalisation, disable preinstalled apps, and remove stubborn ones with ADB, plus how to undo it and what never to remove.">
+<meta name="theme-color" content="#121820">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://getframetv.com/articles/debloat-google-tv">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Art Frame TV">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Debloat Google TV: remove ads and bloatware">
+<meta property="og:description" content="How to debloat a Google TV: turn off ad personalisation, disable preinstalled apps, and remove stubborn ones with ADB, plus how to undo it and what never to remove.">
+<meta property="og:url" content="https://getframetv.com/articles/debloat-google-tv">
+<meta property="og:image" content="https://getframetv.com/images/social-1200x630.png?v=2">
+<meta property="og:image:alt" content="A painting hung on a TV inside a walnut frame with a cream mat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Debloat Google TV: remove ads and bloatware">
+<meta name="twitter:description" content="How to debloat a Google TV: turn off ad personalisation, disable preinstalled apps, and remove stubborn ones with ADB, plus how to undo it and what never to remove.">
+<meta name="twitter:image" content="https://getframetv.com/images/social-1200x630.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/icon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/images/icon-180.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"Debloat Google TV: remove ads and bloatware","description":"How to debloat a Google TV: turn off ad personalisation, disable preinstalled apps, and remove stubborn ones with ADB, plus how to undo it and what never to remove.",
+ "mainEntityOfPage":"https://getframetv.com/articles/debloat-google-tv","image":"https://getframetv.com/images/social-1200x630.png",
+ "datePublished":"2026-11-22","dateModified":"2026-11-22",
+ "author":{"@type":"Organization","name":"Digital Space Agency UG","url":"https://getframetv.com/"},
+ "publisher":{"@type":"Organization","name":"Art Frame TV","url":"https://getframetv.com/",
+  "logo":{"@type":"ImageObject","url":"https://getframetv.com/images/icon-192.png"}}},
+{"@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://getframetv.com/"},
+ {"@type":"ListItem","position":2,"name":"Guides","item":"https://getframetv.com/articles/"},
+ {"@type":"ListItem","position":3,"name":"Debloat Google TV: remove ads and bloatware"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is it safe to debloat Google TV?","acceptedAnswer":{"@type":"Answer","text":"Disabling apps and turning off ad personalisation is safe. Removing apps with ADB for your user is reversible, but leave the launcher, Play Store and Google Play services alone."}},
+{"@type":"Question","name":"Can I remove ads from the Google TV home screen?","acceptedAnswer":{"@type":"Answer","text":"Partly. You can opt out of ad personalisation and disable preinstalled apps, but some promoted rows come from Google TV itself and cannot be switched off in settings."}},
+{"@type":"Question","name":"Will debloating void my warranty?","acceptedAnswer":{"@type":"Answer","text":"Removing apps for your user does not modify the system image, and a factory reset restores them. Check your TV maker's terms if you are unsure."}},
+{"@type":"Question","name":"How do I get a removed app back?","acceptedAnswer":{"@type":"Answer","text":"Run adb shell cmd package install-existing with the package name, or factory reset the TV."}}]}
+]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Art Frame TV, home">
+      <img class="brand-mark" src="/images/icon-192.png?v=3" width="30" height="30" alt="" aria-hidden="true">
+      <span class="brand-name">Art Frame <b>TV</b></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#craft">The framing</a></li>
+      <li><a href="/#materials">Materials</a></li>
+      <li><a href="/#photos">Your photos</a></li>
+      <li><a href="/articles/">Guides</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+    </ul>
+    <a class="btn btn-ghost btn-sm" href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play</a>
+  </div>
+</header>
+
+
+<main id="main" class="doc">
+  <div class="wrap">
+    <div class="doc-head">
+      <p class="eyebrow"><a href="/articles/" style="color:inherit;text-decoration:none">Guides</a></p>
+      <h1>Debloat Google TV: remove ads and bloatware</h1>
+      <p class="lede">Many Google TV owners find a home screen full of promoted rows and preinstalled apps they never
+asked for. You can tidy most of it without a computer, and remove the rest with one ADB command per app.
+Here is what is safe, what is reversible, and what to leave alone.</p>
+      <div class="doc-meta">
+        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-11-22">22 November 2026</time></span>
+        <span><strong style="color:var(--muted)">For</strong> Google TV &amp; Android TV</span>
+      </div>
+    </div>
+
+    <div class="doc-body">
+      <aside class="toc" aria-label="On this page">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#start-with-the-settings-no-computer-needed">Start with the settings, no computer needed</a></li>
+          <li><a href="#remove-stubborn-apps-with-adb">Remove stubborn apps with ADB</a></li>
+          <li><a href="#how-to-undo-it">How to undo it</a></li>
+          <li><a href="#what-not-to-remove">What not to remove</a></li>
+          <li><a href="#replace-the-ambient-screensaver-while-you-are-at-it">Replace the ambient screensaver while you are at it</a></li>
+          <li><a href="#faq">Common questions</a></li>
+        </ol>
+      </aside>
+
+      <article class="prose">
+        <section>
+        <h2 id="start-with-the-settings-no-computer-needed">Start with the settings, no computer needed</h2>
+        <p>Do these first, since they cost nothing and cannot break anything:</p>
+   <ul>
+     <li><strong>Turn off ad personalisation.</strong> Look under <strong>Settings → Privacy → Ads</strong> and opt out
+     of ads personalisation. Menu names vary by TV maker and software version.</li>
+     <li><strong>Disable preinstalled apps you never use.</strong> Go to <strong>Settings → Apps → See all apps</strong>,
+     pick the app and choose <strong>Disable</strong>. Disabled apps stop running and can be re-enabled any time.</li>
+     <li><strong>Hide the clutter.</strong> Apps you disable stop appearing in your apps row.</li>
+   </ul>
+   <p>Some promoted rows on the home screen come from Google TV itself and cannot be switched off from settings.</p>
+        </section>
+        <section>
+        <h2 id="remove-stubborn-apps-with-adb">Remove stubborn apps with ADB</h2>
+        <p>Some preinstalled apps have no Disable button. ADB can remove them for your user
+   account without touching the system image, so it is reversible. You need a computer on the same network.</p>
+   <ol>
+     <li>On the TV open <strong>Settings → System → About</strong> and tap <strong>Android TV OS build</strong> (or Build)
+     seven times to unlock Developer options.</li>
+     <li>In <strong>Settings → System → Developer options</strong> turn on <strong>USB debugging</strong> or
+     <strong>Wireless debugging</strong>, depending on your TV.</li>
+     <li>Connect from your computer. Pairing steps for each system are in our
+     <a href="/articles/set-up-art-frame-tv">setup guide</a>.</li>
+     <li>List installed packages: <code>adb shell pm list packages</code>. Find the one you want to remove.</li>
+     <li>Remove it for your user: <code>adb shell pm uninstall -k --user 0 PACKAGE_NAME</code></li>
+   </ol>
+        </section>
+        <section>
+        <h2 id="how-to-undo-it">How to undo it</h2>
+        <p>Because the command only removes the app for your user, you can bring it back with
+   <code>adb shell cmd package install-existing PACKAGE_NAME</code>. A factory reset also restores everything.
+   Write down each package name before you remove it.</p>
+        </section>
+        <section>
+        <h2 id="what-not-to-remove">What not to remove</h2>
+        <p>Do not remove the Google TV launcher (<code>com.google.android.apps.tv.launcherx</code>
+   on Google TV, <code>com.google.android.tvlauncher</code> on Android TV), the Play Store
+   (<code>com.android.vending</code>), Google Play services (<code>com.google.android.gms</code>), or anything with
+   <em>system</em> or <em>settings</em> in the name. Removing those can leave the TV without a home screen or unable to
+   install apps. If unsure, disable instead of uninstalling.</p>
+        </section>
+        <section>
+        <h2 id="replace-the-ambient-screensaver-while-you-are-at-it">Replace the ambient screensaver while you are at it</h2>
+        <p>Since you already have ADB working, it is also the way to
+   use a third-party screensaver on Google TV, where Ambient Mode only lists Google's own sources. See
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>, or install
+   <a href="/">Art Frame TV</a> for a framed art display with no ads and no account.</p>
+        </section>
+
+        <h2 id="faq">Common questions</h2>
+        <div class="faq" style="border-top:0">
+        <details>
+          <summary>Is it safe to debloat Google TV?</summary>
+          <div class="answer">Disabling apps and turning off ad personalisation is safe. Removing apps with ADB for your user is reversible, but leave the launcher, Play Store and Google Play services alone.</div>
+        </details>
+        <details>
+          <summary>Can I remove ads from the Google TV home screen?</summary>
+          <div class="answer">Partly. You can opt out of ad personalisation and disable preinstalled apps, but some promoted rows come from Google TV itself and cannot be switched off in settings.</div>
+        </details>
+        <details>
+          <summary>Will debloating void my warranty?</summary>
+          <div class="answer">Removing apps for your user does not modify the system image, and a factory reset restores them. Check your TV maker&#x27;s terms if you are unsure.</div>
+        </details>
+        <details>
+          <summary>How do I get a removed app back?</summary>
+          <div class="answer">Run adb shell cmd package install-existing with the package name, or factory reset the TV.</div>
+        </details>
+        </div>
+
+        <div class="callout" style="margin-top:44px">
+          <p><strong>Art Frame TV</strong> puts your photos and gallery classics inside
+          photorealistic frames with real passe-partout matting, on Google TV and Android TV.
+          Free, no account, no ads. <a href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play →</a> · <a href="/">See how it works</a></p>
+        </div>
+
+        <h2 id="more">More guides</h2>
+        <ul>
+            <li><a href="/articles/google-tv-screensaver">Change the screensaver on Google TV (2026)</a></li>
+            <li><a href="/articles/set-up-art-frame-tv">How to set up Art Frame TV as your screensaver</a></li>
+            <li><a href="/articles/google-photos-on-tv">Google Photos as a Google TV screensaver</a></li>
+            <li><a href="/articles/free-art-for-frame-tv">Free Frame TV art: where to download it</a></li>
+            <li><a href="/articles/tv-as-digital-photo-frame">Use your TV as a digital picture frame</a></li>
+            <li><a href="/articles/what-is-a-passe-partout">What is a passe-partout? Mat board, bevels and the 18% rule</a></li>
+            <li><a href="/articles/art-mode-without-a-frame-tv">Art mode without a Frame TV: how to get it</a></li>
+            <li><a href="/articles/samsung-frame-tv-alternative">Samsung Frame TV alternative: 3 cheaper ways</a></li>
+            <li><a href="/articles/google-tv-ambient-mode">Change the ambient screensaver on Google TV</a></li>
+            <li><a href="/articles/turn-android-tv-into-art">How to turn your Android TV into art</a></li>
+            <li><a href="/articles/free-art-screensaver-android-tv">Free art screensaver for Android TV and Google TV</a></li>
+            <li><a href="/articles/best-android-tv-screensaver-art">Choosing an art screensaver for Android TV: what to look for</a></li>
+            <li><a href="/articles/tv-photo-frame-app">TV photo frame app: show photos on your TV</a></li>
+            <li><a href="/articles/art-screensaver-for-tv">Art screensaver for TV: free ways to get one</a></li>
+            <li><a href="/articles/nvidia-shield-screensaver">Nvidia Shield screensaver: change it to art</a></li>
+            <li><a href="/articles/christmas-art-for-tv">Christmas art for your TV: free paintings to show</a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-legal">
+      © <span id="year">2026</span> Digital Space Agency UG ·
+      <a href="/">Art Frame TV</a> · <a href="/articles/">Guides</a> ·
+      <a href="/privacy">Privacy</a> · <a href="mailto:info@dsa.team">info@dsa.team</a><br>
+      Art Frame TV is not affiliated with, endorsed by, or sponsored by Google or Samsung.
+      Google TV, Android TV and Google Photos are trademarks of Google LLC.
+    </p>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+const nav=document.getElementById('nav');const f=()=>{nav.dataset.stuck=String(scrollY>12)};f();addEventListener('scroll',f,{passive:true});</script>
+</body>
+</html>

@@ -588,7 +588,7 @@ costs nothing. Here is how they compare, including the one thing none of them ca
   slug="google-tv-ambient-mode",
   kw="google tv ambient mode", vol=140, kd=6,
   updated="2026-11-13",
-  title="Google TV Ambient Mode: how to set it up, change it and turn it off",
+  title="Change the ambient screensaver on Google TV",
   desc="Where Ambient Mode lives on Google TV, what the three sources do, how to change the timer, and why third-party screensaver apps don't appear in the list.",
   intro="""Ambient Mode is what Google TV shows when you stop using it. It is easy to find once you
 know where to look, and easy to get stuck on the wrong source. Here is how it works and how to change
@@ -873,6 +873,103 @@ to put art on it.""",
     "Yes. Android TV lists installed screensaver apps in the Screen saver menu, so an app such as Art Frame TV appears there after you install it."),
    ("Why is my Shield showing the same screensaver every time?",
     "The default Backdrop screensaver rotates its own images. Choose a different screensaver in the same menu if you want something else."),
+  ]),
+ dict(
+  slug="debloat-google-tv",
+  kw="debloat google tv", vol=390, kd=0,
+  published="2026-11-22", updated="2026-11-22",
+  title="Debloat Google TV: remove ads and bloatware",
+  desc="How to debloat a Google TV: turn off ad personalisation, disable preinstalled apps, and remove stubborn ones with ADB, plus how to undo it and what never to remove.",
+  intro="""Many Google TV owners find a home screen full of promoted rows and preinstalled apps they never
+asked for. You can tidy most of it without a computer, and remove the rest with one ADB command per app.
+Here is what is safe, what is reversible, and what to leave alone.""",
+  sections=[
+   ("Start with the settings, no computer needed", """<p>Do these first, since they cost nothing and cannot break anything:</p>
+   <ul>
+     <li><strong>Turn off ad personalisation.</strong> Look under <strong>Settings → Privacy → Ads</strong> and opt out
+     of ads personalisation. Menu names vary by TV maker and software version.</li>
+     <li><strong>Disable preinstalled apps you never use.</strong> Go to <strong>Settings → Apps → See all apps</strong>,
+     pick the app and choose <strong>Disable</strong>. Disabled apps stop running and can be re-enabled any time.</li>
+     <li><strong>Hide the clutter.</strong> Apps you disable stop appearing in your apps row.</li>
+   </ul>
+   <p>Some promoted rows on the home screen come from Google TV itself and cannot be switched off from settings.</p>"""),
+   ("Remove stubborn apps with ADB", """<p>Some preinstalled apps have no Disable button. ADB can remove them for your user
+   account without touching the system image, so it is reversible. You need a computer on the same network.</p>
+   <ol>
+     <li>On the TV open <strong>Settings → System → About</strong> and tap <strong>Android TV OS build</strong> (or Build)
+     seven times to unlock Developer options.</li>
+     <li>In <strong>Settings → System → Developer options</strong> turn on <strong>USB debugging</strong> or
+     <strong>Wireless debugging</strong>, depending on your TV.</li>
+     <li>Connect from your computer. Pairing steps for each system are in our
+     <a href="/articles/set-up-art-frame-tv">setup guide</a>.</li>
+     <li>List installed packages: <code>adb shell pm list packages</code>. Find the one you want to remove.</li>
+     <li>Remove it for your user: <code>adb shell pm uninstall -k --user 0 PACKAGE_NAME</code></li>
+   </ol>"""),
+   ("How to undo it", """<p>Because the command only removes the app for your user, you can bring it back with
+   <code>adb shell cmd package install-existing PACKAGE_NAME</code>. A factory reset also restores everything.
+   Write down each package name before you remove it.</p>"""),
+   ("What not to remove", """<p>Do not remove the Google TV launcher (<code>com.google.android.apps.tv.launcherx</code>
+   on Google TV, <code>com.google.android.tvlauncher</code> on Android TV), the Play Store
+   (<code>com.android.vending</code>), Google Play services (<code>com.google.android.gms</code>), or anything with
+   <em>system</em> or <em>settings</em> in the name. Removing those can leave the TV without a home screen or unable to
+   install apps. If unsure, disable instead of uninstalling.</p>"""),
+   ("Replace the ambient screensaver while you are at it", """<p>Since you already have ADB working, it is also the way to
+   use a third-party screensaver on Google TV, where Ambient Mode only lists Google's own sources. See
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>, or install
+   <a href="/">Art Frame TV</a> for a framed art display with no ads and no account.</p>"""),
+  ],
+  faq=[
+   ("Is it safe to debloat Google TV?",
+    "Disabling apps and turning off ad personalisation is safe. Removing apps with ADB for your user is reversible, but leave the launcher, Play Store and Google Play services alone."),
+   ("Can I remove ads from the Google TV home screen?",
+    "Partly. You can opt out of ad personalisation and disable preinstalled apps, but some promoted rows come from Google TV itself and cannot be switched off in settings."),
+   ("Will debloating void my warranty?",
+    "Removing apps for your user does not modify the system image, and a factory reset restores them. Check your TV maker's terms if you are unsure."),
+   ("How do I get a removed app back?",
+    "Run adb shell cmd package install-existing with the package name, or factory reset the TV."),
+  ]),
+ dict(
+  slug="christmas-art-for-tv",
+  kw="christmas tv art", vol=90, kd=0,
+  published="2026-11-22", updated="2026-11-22",
+  title="Christmas art for your TV: free paintings to show",
+  desc="Free Christmas and winter paintings in the public domain to display on your Google TV or Android TV, and how to frame them so the TV looks like a print.",
+  intro="""From late November, searches for Christmas art for the TV jump several-fold. You do not need a
+subscription for it: many classic Nativity and winter paintings are in the public domain. Here is where to
+find them and how to show them well.""",
+  sections=[
+   ("Classic Christmas and winter paintings", """<p>These works are old enough to be in the public domain, and high-resolution
+   scans are published by museums and on Wikimedia Commons:</p>
+   <ul>
+     <li><strong>Adoration of the Shepherds</strong> by Gerard van Honthorst, a candlelit Nativity.</li>
+     <li><strong>Hunters in the Snow</strong> by Pieter Bruegel the Elder, a winter landscape.</li>
+     <li><strong>The Census at Bethlehem</strong> by Pieter Bruegel the Elder, a snowy village scene.</li>
+     <li><strong>Snow at Argenteuil</strong> and <strong>The Magpie</strong> by Claude Monet, quiet snow scenes.</li>
+     <li>Currier &amp; Ives winter prints from the 1800s.</li>
+   </ul>
+   <p>Check the licence note on each source page before you download, since a museum's photograph can carry its own terms
+   even when the painting is public domain. Our guide to <a href="/articles/free-art-for-frame-tv">free art for your TV</a>
+   lists the best sources.</p>"""),
+   ("Show them as framed art, not a slideshow", """<p>A winter painting looks best inside a mat and frame, with the TV
+   dimmed. Turn the backlight down to about 25 to 35% and use a Warm picture mode, then follow
+   <a href="/articles/turn-android-tv-into-art">how to turn your Android TV into art</a>. A warm wood frame suits the
+   candlelit scenes.</p>"""),
+   ("Use Google's Art gallery for no-effort Christmas art", """<p>On Google TV choose <strong>Settings → System → Ambient mode →
+   Source → Art gallery</strong>. It rotates Google's curated art automatically, though you cannot pick specific works.
+   Details are in <a href="/articles/art-screensaver-for-tv">art screensaver for TV</a>.</p>"""),
+   ("Show your own Christmas photos too", """<p><a href="/">Art Frame TV</a> runs on Google TV and Android TV, and shows your
+   Google Photos albums inside a mat and frame with Studio Unlock, a one-time purchase. Make a Christmas album, then put it
+   on the TV for the season. The free version has 30 bundled images and no time limit.</p>"""),
+  ],
+  faq=[
+   ("Is there free Christmas art for my TV?",
+    "Yes. Many Nativity and winter paintings are in the public domain, and Google TV's Art gallery in Ambient Mode is free."),
+   ("Where can I download Christmas paintings?",
+    "Wikimedia Commons and museum open-access collections such as the Met. Check the licence note on each page."),
+   ("How do I make a painting look right on a TV?",
+    "Dim the backlight to 25 to 35 percent, use a warm picture mode and put the image inside a mat and frame instead of stretching it."),
+   ("Can I show my Christmas photos on Google TV?",
+    "Yes. Google Photos in Ambient Mode shows full-screen photos, and Art Frame TV can show them framed with Studio Unlock."),
   ]),
 ]
 
