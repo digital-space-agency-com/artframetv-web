@@ -971,6 +971,44 @@ find them and how to show them well.""",
    ("Can I show my Christmas photos on Google TV?",
     "Yes. Google Photos in Ambient Mode shows full-screen photos, and Art Frame TV can show them framed with Studio Unlock."),
   ]),
+ dict(
+  slug="digital-photo-frame-gift-google-tv",
+  kw="digital photo frame for grandparents", vol=5400, kd=17,
+  published="2026-11-22", updated="2026-11-22",
+  title="Digital photo frame gift: use the TV they own",
+  desc="A digital photo frame for grandparents or parents at Christmas, without buying hardware: set up a shared Google Photos album that shows on their Google TV or Android TV.",
+  intro="""A dedicated digital photo frame costs money, needs wifi set-up and adds another screen. If the person you are
+buying for already has a Google TV or Android TV, you can give them the same thing for free or a few pounds: a shared
+family album that plays on the TV when it is idle, and that you can add to from your own phone.""",
+  sections=[
+   ("Is this a good alternative to a photo frame?", """<p>It depends on the person. A TV is far larger than a
+   10-inch frame, and photos show with a mat and frame around them, which is the look people want. The trade-off is that
+   the TV has to be on its idle screen, so it suits a living room more than a bedside table. If they have no Google TV or
+   Android TV, a dedicated frame is the simpler gift.</p>"""),
+   ("How to set it up as a gift", """<ol>
+     <li>Create a shared album in Google Photos and add family photos.</li>
+     <li>Share it with the recipient's Google account and let relatives add their own photos.</li>
+     <li>On their TV, open <strong>Settings → System → Ambient mode → Source → Google Photos</strong> and pick the album.
+     This is free and shows photos full screen.</li>
+     <li>For a framed look, install <a href="/">Art Frame TV</a>. Studio Unlock (one-time purchase, no subscription)
+     shows shared albums inside a mat and frame.</li>
+   </ol>
+   <p>Full steps are in <a href="/articles/google-photos-on-tv">Google Photos on your TV</a>.</p>"""),
+   ("Why it works for grandparents", """<p>Once set up, nothing needs to be pressed. New photos you add from your phone show up on
+   their TV without them doing anything, and there is no app to open or password to remember.</p>"""),
+   ("What to do on the day", """<p>Set it up before you wrap anything, since the recipient's TV account is needed. Print a card
+   saying "Your TV now shows family photos when it is idle" and add a first album of photos from the past year.</p>"""),
+  ],
+  faq=[
+   ("Can I use my TV as a digital photo frame?",
+    "Yes. Google TV and Android TV can show Google Photos albums when idle, and Art Frame TV adds a mat and frame around each photo."),
+   ("Can family add photos from their own phones?",
+    "Yes, with a shared Google Photos album that relatives can contribute to."),
+   ("Does it cost anything?",
+    "Ambient Mode with Google Photos is free. Art Frame TV's free version has 30 bundled images; showing your own albums needs Studio Unlock, a one-time purchase."),
+   ("What if they do not have a Google TV?",
+    "Then a dedicated digital photo frame is the simpler gift."),
+  ]),
 ]
 
 HEAD = """<!doctype html>
