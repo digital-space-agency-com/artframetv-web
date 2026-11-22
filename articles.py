@@ -427,6 +427,10 @@ usually brightness and framing, not resolution.""",
    you want anyway — the risk is small.</p>"""),
   ],
   faq=[
+   ("Can I use my LG TV as a photo frame?",
+    "Yes. Any smart TV that can run a photo app or screensaver can show photos, though LG webOS lacks Google TV's Ambient mode, so check what your model offers."),
+   ("Can I use my Samsung TV as a photo frame?",
+    "Yes. Samsung TVs have their own ambient and gallery features, and The Frame has a dedicated art mode. Other Samsung models vary."),
    ("Can I use my smart TV as a digital picture frame?",
     "Yes. Use the TV's built-in ambient mode, a dedicated photo frame app, or a USB slideshow. The app route gives the most control and can work offline."),
    ("What is the best TV setting for displaying photos?",
@@ -1008,6 +1012,75 @@ family album that plays on the TV when it is idle, and that you can add to from 
     "Ambient Mode with Google Photos is free. Art Frame TV's free version has 30 bundled images; showing your own albums needs Studio Unlock, a one-time purchase."),
    ("What if they do not have a Google TV?",
     "Then a dedicated digital photo frame is the simpler gift."),
+  ]),
+
+ dict(
+  slug="google-tv-screensaver-not-working",
+  kw="google tv screensaver not showing google photos", vol=30, kd=5,
+  published="2026-11-22", updated="2026-11-22",
+  title="Google TV screensaver not working: fixes (2026)",
+  desc="Fix a Google TV or Android TV screensaver that will not start, ignores Google Photos, or reverts to the default. Where the setting lives and what usually breaks it.",
+  intro="""A screensaver that never starts, or shows the wrong pictures, is usually one of four things: the setting is
+in a different menu than you expect, the source is not selected, the idle timer is off, or the account has no photos
+to show. Work through them in this order.""",
+  sections=[
+   ("Find the right menu", """<p>On <strong>Google TV</strong> the setting is under <strong>Settings → System → Ambient mode</strong>.
+   On older <strong>Android TV</strong> and Nvidia Shield it is <strong>Settings → Device Preferences → Screen saver</strong>.
+   Menu names vary by TV maker and software version, so search the settings for "screensaver" or "ambient" if yours differs.</p>"""),
+   ("Google Photos not showing", """<p>In Ambient mode choose <strong>Google Photos</strong> as the source, then pick the
+   albums to show. The albums must exist in the Google account signed in on the TV, and shared albums need to be added to
+   that account's library first. If the TV shows the default art or clock, the selection is empty or the account has
+   no photos available to it.</p>"""),
+   ("It never starts", """<p>Check the idle timer under <strong>Start time</strong> or <strong>When to start</strong> and set a
+   short delay such as 5 minutes to test. A TV that is playing video, or an HDMI input that keeps the screen active,
+   will not trigger the screensaver.</p>"""),
+   ("It reverts to the default", """<p>Some Google TV versions only offer built-in screensavers in Ambient mode. To use a
+   third-party screensaver you can change the setting with ADB or a launcher, covered in
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>.</p>"""),
+   ("Use art instead", """<p>If you want framed art rather than a photo slideshow, <a href="/">Art Frame TV</a> adds a mat
+   and frame and works as a screensaver. See the <a href="/articles/set-up-art-frame-tv">setup guide</a>.</p>"""),
+  ],
+  faq=[
+   ("Why is my Google TV screensaver not showing my Google Photos?",
+    "Usually the Google Photos source or albums are not selected in Ambient mode, or the signed-in account has no albums available to it."),
+   ("Where is the screensaver setting on Google TV?",
+    "Settings, then System, then Ambient mode. On older Android TV it is Settings, then Device Preferences, then Screen saver."),
+   ("Why does my TV screensaver never start?",
+    "The idle timer may be off or very long, or an active video or HDMI input is keeping the screen awake."),
+   ("Can I use a custom screensaver on Google TV?",
+    "Yes, but newer Google TV versions hide the option. It can be changed with ADB or a launcher."),
+  ]),
+ dict(
+  slug="which-tvs-have-art-mode",
+  kw="what tvs have art mode", vol=200, kd=10,
+  published="2026-11-22", updated="2026-11-22",
+  title="Which TVs have an art mode, and is the art free?",
+  desc="Which TVs ship with an art mode, what the art costs, and how to get a similar framed-art look on any Google TV or Android TV for free.",
+  intro="""Art mode means the TV shows artwork when idle, ideally with a matte screen and a frame. Only a few TV lines
+are built around it, and the art supply is not always free. Here is the short version and an alternative for
+everyone else.""",
+  sections=[
+   ("TVs built around an art mode", """<p><strong>Samsung The Frame</strong> is the best known, with a matte display and
+   an Art Store. Other makers sell similar lifestyle TVs, such as Hisense and TCL art-style models. Availability and
+   features change by year and region, so check the maker's current page before buying.</p>"""),
+   ("Is the art free?", """<p>It depends on the maker. Samsung includes some artwork and sells a larger catalogue as a
+   subscription. Features differ by model and region, so confirm what your TV includes. Public-domain paintings from
+   museums are free to use, and several apps display them.</p>"""),
+   ("Get the look on any Google TV", """<p>Most Google TV and Android TV sets have no art mode, but you can get close:
+   <a href="/">Art Frame TV</a> shows public-domain masterworks and your own photos in a bevelled mat and frame, with 30
+   artworks free. See <a href="/articles/art-mode-without-a-frame-tv">art mode without a Frame TV</a> and
+   <a href="/articles/free-art-for-frame-tv">free art for your TV</a>.</p>"""),
+   ("Make any TV look less like a TV", """<p>Lower the brightness, turn off motion smoothing, use a warm colour temperature and
+   keep a dark border around the artwork. The <a href="/articles/tv-as-digital-photo-frame">digital picture frame guide</a>
+   lists the settings.</p>"""),
+  ],
+  faq=[
+   ("What TVs have art mode?",
+    "Samsung The Frame is the best known. Some Hisense and TCL models offer art-style modes. Check the maker's current range."),
+   ("Is Frame TV art free?",
+    "Some art is included and a larger catalogue is a paid subscription on Samsung. Public-domain art is free from other sources."),
+   ("Can I get art mode on a regular Google TV?",
+    "Not as a built-in feature, but an app such as Art Frame TV shows framed artwork and works as a screensaver."),
   ]),
 ]
 

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google TV screensaver not working: fixes (2026) — Art Frame TV</title>
+<meta name="description" content="Fix a Google TV or Android TV screensaver that will not start, ignores Google Photos, or reverts to the default. Where the setting lives and what usually breaks it.">
+<meta name="theme-color" content="#121820">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://getframetv.com/articles/google-tv-screensaver-not-working">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Art Frame TV">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Google TV screensaver not working: fixes (2026)">
+<meta property="og:description" content="Fix a Google TV or Android TV screensaver that will not start, ignores Google Photos, or reverts to the default. Where the setting lives and what usually breaks it.">
+<meta property="og:url" content="https://getframetv.com/articles/google-tv-screensaver-not-working">
+<meta property="og:image" content="https://getframetv.com/images/social-1200x630.png?v=2">
+<meta property="og:image:alt" content="A painting hung on a TV inside a walnut frame with a cream mat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google TV screensaver not working: fixes (2026)">
+<meta name="twitter:description" content="Fix a Google TV or Android TV screensaver that will not start, ignores Google Photos, or reverts to the default. Where the setting lives and what usually breaks it.">
+<meta name="twitter:image" content="https://getframetv.com/images/social-1200x630.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/icon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/images/icon-180.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"Google TV screensaver not working: fixes (2026)","description":"Fix a Google TV or Android TV screensaver that will not start, ignores Google Photos, or reverts to the default. Where the setting lives and what usually breaks it.",
+ "mainEntityOfPage":"https://getframetv.com/articles/google-tv-screensaver-not-working","image":"https://getframetv.com/images/social-1200x630.png",
+ "datePublished":"2026-11-22","dateModified":"2026-11-22",
+ "author":{"@type":"Organization","name":"Digital Space Agency UG","url":"https://getframetv.com/"},
+ "publisher":{"@type":"Organization","name":"Art Frame TV","url":"https://getframetv.com/",
+  "logo":{"@type":"ImageObject","url":"https://getframetv.com/images/icon-192.png"}}},
+{"@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://getframetv.com/"},
+ {"@type":"ListItem","position":2,"name":"Guides","item":"https://getframetv.com/articles/"},
+ {"@type":"ListItem","position":3,"name":"Google TV screensaver not working: fixes (2026)"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Why is my Google TV screensaver not showing my Google Photos?","acceptedAnswer":{"@type":"Answer","text":"Usually the Google Photos source or albums are not selected in Ambient mode, or the signed-in account has no albums available to it."}},
+{"@type":"Question","name":"Where is the screensaver setting on Google TV?","acceptedAnswer":{"@type":"Answer","text":"Settings, then System, then Ambient mode. On older Android TV it is Settings, then Device Preferences, then Screen saver."}},
+{"@type":"Question","name":"Why does my TV screensaver never start?","acceptedAnswer":{"@type":"Answer","text":"The idle timer may be off or very long, or an active video or HDMI input is keeping the screen awake."}},
+{"@type":"Question","name":"Can I use a custom screensaver on Google TV?","acceptedAnswer":{"@type":"Answer","text":"Yes, but newer Google TV versions hide the option. It can be changed with ADB or a launcher."}}]}
+]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Art Frame TV, home">
+      <img class="brand-mark" src="/images/icon-192.png?v=3" width="30" height="30" alt="" aria-hidden="true">
+      <span class="brand-name">Art Frame <b>TV</b></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#craft">The framing</a></li>
+      <li><a href="/#materials">Materials</a></li>
+      <li><a href="/#photos">Your photos</a></li>
+      <li><a href="/articles/">Guides</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+    </ul>
+    <a class="btn btn-ghost btn-sm" href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play</a>
+  </div>
+</header>
+
+
+<main id="main" class="doc">
+  <div class="wrap">
+    <div class="doc-head">
+      <p class="eyebrow"><a href="/articles/" style="color:inherit;text-decoration:none">Guides</a></p>
+      <h1>Google TV screensaver not working: fixes (2026)</h1>
+      <p class="lede">A screensaver that never starts, or shows the wrong pictures, is usually one of four things: the setting is
+in a different menu than you expect, the source is not selected, the idle timer is off, or the account has no photos
+to show. Work through them in this order.</p>
+      <div class="doc-meta">
+        <span><strong style="color:var(--muted)">Updated</strong> <time datetime="2026-11-22">22 November 2026</time></span>
+        <span><strong style="color:var(--muted)">For</strong> Google TV &amp; Android TV</span>
+      </div>
+    </div>
+
+    <div class="doc-body">
+      <aside class="toc" aria-label="On this page">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#find-the-right-menu">Find the right menu</a></li>
+          <li><a href="#google-photos-not-showing">Google Photos not showing</a></li>
+          <li><a href="#it-never-starts">It never starts</a></li>
+          <li><a href="#it-reverts-to-the-default">It reverts to the default</a></li>
+          <li><a href="#use-art-instead">Use art instead</a></li>
+          <li><a href="#faq">Common questions</a></li>
+        </ol>
+      </aside>
+
+      <article class="prose">
+        <section>
+        <h2 id="find-the-right-menu">Find the right menu</h2>
+        <p>On <strong>Google TV</strong> the setting is under <strong>Settings → System → Ambient mode</strong>.
+   On older <strong>Android TV</strong> and Nvidia Shield it is <strong>Settings → Device Preferences → Screen saver</strong>.
+   Menu names vary by TV maker and software version, so search the settings for "screensaver" or "ambient" if yours differs.</p>
+        </section>
+        <section>
+        <h2 id="google-photos-not-showing">Google Photos not showing</h2>
+        <p>In Ambient mode choose <strong>Google Photos</strong> as the source, then pick the
+   albums to show. The albums must exist in the Google account signed in on the TV, and shared albums need to be added to
+   that account's library first. If the TV shows the default art or clock, the selection is empty or the account has
+   no photos available to it.</p>
+        </section>
+        <section>
+        <h2 id="it-never-starts">It never starts</h2>
+        <p>Check the idle timer under <strong>Start time</strong> or <strong>When to start</strong> and set a
+   short delay such as 5 minutes to test. A TV that is playing video, or an HDMI input that keeps the screen active,
+   will not trigger the screensaver.</p>
+        </section>
+        <section>
+        <h2 id="it-reverts-to-the-default">It reverts to the default</h2>
+        <p>Some Google TV versions only offer built-in screensavers in Ambient mode. To use a
+   third-party screensaver you can change the setting with ADB or a launcher, covered in
+   <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV</a>.</p>
+        </section>
+        <section>
+        <h2 id="use-art-instead">Use art instead</h2>
+        <p>If you want framed art rather than a photo slideshow, <a href="/">Art Frame TV</a> adds a mat
+   and frame and works as a screensaver. See the <a href="/articles/set-up-art-frame-tv">setup guide</a>.</p>
+        </section>
+
+        <h2 id="faq">Common questions</h2>
+        <div class="faq" style="border-top:0">
+        <details>
+          <summary>Why is my Google TV screensaver not showing my Google Photos?</summary>
+          <div class="answer">Usually the Google Photos source or albums are not selected in Ambient mode, or the signed-in account has no albums available to it.</div>
+        </details>
+        <details>
+          <summary>Where is the screensaver setting on Google TV?</summary>
+          <div class="answer">Settings, then System, then Ambient mode. On older Android TV it is Settings, then Device Preferences, then Screen saver.</div>
+        </details>
+        <details>
+          <summary>Why does my TV screensaver never start?</summary>
+          <div class="answer">The idle timer may be off or very long, or an active video or HDMI input is keeping the screen awake.</div>
+        </details>
+        <details>
+          <summary>Can I use a custom screensaver on Google TV?</summary>
+          <div class="answer">Yes, but newer Google TV versions hide the option. It can be changed with ADB or a launcher.</div>
+        </details>
+        </div>
+
+        <div class="callout" style="margin-top:44px">
+          <p><strong>Art Frame TV</strong> puts your photos and gallery classics inside
+          photorealistic frames with real passe-partout matting, on Google TV and Android TV.
+          Free, no account, no ads. <a href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Get it on Google Play →</a> · <a href="/">See how it works</a></p>
+        </div>
+
+        <h2 id="more">More guides</h2>
+        <ul>
+            <li><a href="/articles/google-tv-screensaver">Change the screensaver on Google TV (2026)</a></li>
+            <li><a href="/articles/set-up-art-frame-tv">How to set up Art Frame TV as your screensaver</a></li>
+            <li><a href="/articles/google-photos-on-tv">Google Photos as a Google TV screensaver</a></li>
+            <li><a href="/articles/free-art-for-frame-tv">Free Frame TV art: where to download it</a></li>
+            <li><a href="/articles/tv-as-digital-photo-frame">Use your TV as a digital picture frame</a></li>
+            <li><a href="/articles/what-is-a-passe-partout">What is a passe-partout? Mat board, bevels and the 18% rule</a></li>
+            <li><a href="/articles/art-mode-without-a-frame-tv">Art mode without a Frame TV: how to get it</a></li>
+            <li><a href="/articles/samsung-frame-tv-alternative">Samsung Frame TV alternative: 3 cheaper ways</a></li>
+            <li><a href="/articles/google-tv-ambient-mode">Change the ambient screensaver on Google TV</a></li>
+            <li><a href="/articles/turn-android-tv-into-art">How to turn your Android TV into art</a></li>
+            <li><a href="/articles/free-art-screensaver-android-tv">Free art screensaver for Android TV and Google TV</a></li>
+            <li><a href="/articles/best-android-tv-screensaver-art">Choosing an art screensaver for Android TV: what to look for</a></li>
+            <li><a href="/articles/tv-photo-frame-app">TV photo frame app: show photos on your TV</a></li>
+            <li><a href="/articles/art-screensaver-for-tv">Art screensaver for TV: free ways to get one</a></li>
+            <li><a href="/articles/nvidia-shield-screensaver">Nvidia Shield screensaver: change it to art</a></li>
+            <li><a href="/articles/debloat-google-tv">Debloat Google TV: remove ads and bloatware</a></li>
+            <li><a href="/articles/christmas-art-for-tv">Christmas art for your TV: free paintings to show</a></li>
+            <li><a href="/articles/digital-photo-frame-gift-google-tv">Digital photo frame gift: use the TV they own</a></li>
+            <li><a href="/articles/which-tvs-have-art-mode">Which TVs have an art mode, and is the art free?</a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-legal">
+      © <span id="year">2026</span> Digital Space Agency UG ·
+      <a href="/">Art Frame TV</a> · <a href="/articles/">Guides</a> ·
+      <a href="/privacy">Privacy</a> · <a href="mailto:info@dsa.team">info@dsa.team</a><br>
+      Art Frame TV is not affiliated with, endorsed by, or sponsored by Google or Samsung.
+      Google TV, Android TV and Google Photos are trademarks of Google LLC.
+    </p>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+const nav=document.getElementById('nav');const f=()=>{nav.dataset.stuck=String(scrollY>12)};f();addEventListener('scroll',f,{passive:true});</script>
+</body>
+</html>
