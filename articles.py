@@ -755,6 +755,125 @@ taste, plus where Art Frame TV fits.""",
    ("Should I pay for a screensaver app?",
     "Only if the free version proves it is worth it. A one-time purchase for extra frames or art is fairer than a subscription for a wall display."),
   ]),
+ dict(
+  slug="tv-photo-frame-app",
+  kw="tv photo frame", vol=5400, kd=18,
+  published="2026-11-22", updated="2026-11-22",
+  title="TV photo frame app: show photos on your TV",
+  desc="How to turn a Google TV or Android TV into a photo frame with an app: what to look for, how to show your own photos, and how to make them look like prints.",
+  intro="""A television is a large, sharp screen that is idle most of the day, which makes it a good photo
+frame. The catch is that a photo simply filling a TV looks like a slideshow, not a frame. Here is how to
+show your own photos on a Google TV or Android TV, and how to make them look like they belong on a wall.""",
+  sections=[
+   ("The three ways to show photos on a TV", """<p>On a Google TV or Android TV you have three realistic options:</p>
+   <ul>
+     <li><strong>Google Photos in Ambient Mode.</strong> Built in and free, but it only shows full-screen photos and
+     only from albums you pick in the Google Home app. See <a href="/articles/google-photos-on-tv">Google Photos on TV</a>.</li>
+     <li><strong>A photo frame app.</strong> An app that runs on the TV and shows your photos with its own layout,
+     borders and timing.</li>
+     <li><strong>Casting from a phone.</strong> Works for a one-off, but the phone has to stay on and connected.</li>
+   </ul>"""),
+   ("What a good photo frame app does", """<p>Look for four things:</p>
+   <ul>
+     <li><strong>It runs as a screensaver,</strong> so photos appear when the TV is idle, without you opening anything.</li>
+     <li><strong>It frames the photo.</strong> A mat and frame around a picture is what makes a screen read as a print.
+     <a href="/articles/what-is-a-passe-partout">What a passe-partout is</a> explains why.</li>
+     <li><strong>It keeps your photos on the TV,</strong> with no account needed for it to work.</li>
+     <li><strong>It does not charge a subscription</strong> for a wall display.</li>
+   </ul>"""),
+   ("Showing your own photos with Art Frame TV", """<p><a href="/">Art Frame TV</a> runs on Google TV and Android TV. The free
+   version includes 30 bundled images, a bevelled mat, depth shadow and glazing, and the screensaver, with no account
+   and no ads. Showing your own photos from Google Photos and shared albums is part of Studio Unlock, a one-time
+   purchase. Nothing renews.</p>"""),
+   ("Make the photos look like prints", """<p>Whatever app you use, three TV settings matter more than the app. Turn the
+   backlight down to about 25 to 35%, switch the picture mode to Warm or Filmmaker Mode, and avoid stretching photos to
+   16:9. The full list is in <a href="/articles/tv-as-digital-photo-frame">how to use your TV as a digital picture frame</a>.</p>"""),
+   ("Set it up as the screensaver", """<p>On Android TV, pick the app under <strong>Settings → Device Preferences → Screen
+   saver</strong>. Google TV hides third-party screensavers behind Ambient Mode, so it needs one extra step. The
+   <a href="/articles/set-up-art-frame-tv">setup guide</a> covers both routes.</p>"""),
+  ],
+  faq=[
+   ("What is the best photo frame app for a TV?",
+    "One that runs as a screensaver, frames the photo instead of stretching it, keeps photos on the TV and does not need a subscription. Art Frame TV meets all four on Google TV and Android TV."),
+   ("Can I show my own photos on Google TV?",
+    "Yes. Google Photos in Ambient Mode shows full-screen photos from albums you choose in the Google Home app. Art Frame TV can show your Google Photos and shared albums inside a mat and frame with Studio Unlock."),
+   ("Do I need to leave my phone connected?",
+    "Not for an app that runs on the TV. Casting needs the phone connected, an app does not."),
+   ("Will a photo frame app harm my TV screen?",
+    "Showing changing images at a lower brightness is gentler than leaving a static bright image up. Keep the backlight low and use a slideshow rather than one fixed picture."),
+  ]),
+ dict(
+  slug="art-screensaver-for-tv",
+  kw="tv art screensaver", vol=210, kd=3,
+  published="2026-11-22", updated="2026-11-22",
+  title="Art screensaver for TV: free ways to get one",
+  desc="How to put famous paintings on your TV as a screensaver: Google's Art gallery source, public-domain art, and an app that frames each painting like a print.",
+  intro="""Turning your TV into a rotating art gallery when it is idle is easy and can be free. There are
+two good routes on Google TV and Android TV, and they suit different tastes. Here is what each one gives you.""",
+  sections=[
+   ("Route 1: Google's Art gallery", """<p>On Google TV, open <strong>Settings → System → Ambient mode → Source</strong> and
+   choose <strong>Art gallery</strong>. Google supplies the images, they rotate automatically, and it costs nothing. The
+   trade-offs are that you cannot choose the artworks and nothing is framed or matted. See
+   <a href="/articles/google-tv-ambient-mode">Google TV Ambient Mode</a> for the menu.</p>"""),
+   ("Route 2: a framed art app", """<p><a href="/">Art Frame TV</a> ships with 30 bundled images, including public-domain
+   masterworks, and draws a bevelled mat, a frame and a soft shadow around each one. The free version includes all
+   30 images, a Dark Walnut frame or no frame, and the screensaver, with no account and no ads. More frames, mats
+   and art packs are one-time purchases.</p>"""),
+   ("Where public-domain art comes from", """<p>Museums such as the Met publish high-resolution scans of works in the public
+   domain, and Wikimedia Commons hosts many more. That is why famous paintings can be shown on a TV without a licence.
+   Our guide to <a href="/articles/free-art-for-frame-tv">free art for your TV</a> lists the best sources.</p>"""),
+   ("Make it look like art, not a screen", """<p>Dim the backlight to about 25 to 35%, use a warm picture mode and keep the
+   painting inside a mat. <a href="/articles/turn-android-tv-into-art">How to turn your Android TV into art</a> walks
+   through the four steps in order.</p>"""),
+   ("Which should you choose?", """<p>If you want zero setup, use Art gallery. If you want a framed look, control over
+   which images appear, or your own photos next to the paintings, use an app. You can try the app free, since the free
+   version has no time limit.</p>"""),
+  ],
+  faq=[
+   ("Is there a free art screensaver for my TV?",
+    "Yes. Google TV's Ambient Mode has a free Art gallery source, and Art Frame TV is free to install with 30 bundled images and no account."),
+   ("Where do I find the Art gallery option?",
+    "On Google TV: Settings, then System, then Ambient mode, then Source, and choose Art gallery."),
+   ("Can I choose which paintings appear?",
+    "Not in Google's Art gallery. An app such as Art Frame TV lets you pick from its bundled images and add art packs."),
+   ("Does the art screensaver work on Android TV too?",
+    "Yes. On Android TV you pick the screensaver under Settings, Device Preferences, Screen saver."),
+  ]),
+ dict(
+  slug="nvidia-shield-screensaver",
+  kw="nvidia shield screensaver", vol=110, kd=8,
+  published="2026-11-22", updated="2026-11-22",
+  title="Nvidia Shield screensaver: change it to art",
+  desc="How to change the screensaver on an Nvidia Shield TV, set the start time, and use a third-party art screensaver instead of the default.",
+  intro="""The Nvidia Shield TV runs Android TV, which means it has the classic screensaver menu that newer
+Google TV devices hide. That makes it one of the easiest boxes to set up. Here is where the setting is and how
+to put art on it.""",
+  sections=[
+   ("Open the screensaver settings", """<p>On a Shield TV, go to <strong>Settings → Device Preferences → Screen saver</strong>.
+   Menu names can differ slightly between Shield software versions. If you do not see it, look under
+   <strong>Settings → Device Preferences</strong> for the nearest match.</p>"""),
+   ("Change the screensaver", """<p>Under <strong>Screen saver</strong> pick the one you want from the list. The default is
+   Backdrop, which shows photos and scenes. Any screensaver app you install from Google Play appears in the same list,
+   which is the main reason Shield is easier than a Google TV device.</p>"""),
+   ("Set when it starts", """<p>In the same menu choose <strong>When to start</strong> and set the idle time. Pick a short
+   delay if you want the TV to behave like a picture on the wall, a longer one if you often pause and come back.</p>"""),
+   ("Use art as the screensaver", """<p>Install <a href="/">Art Frame TV</a> from Google Play on the Shield, then select it
+   in the Screen saver list. The free version has 30 bundled images in a bevelled mat and frame, no account and no
+   ads. Full steps are in the <a href="/articles/set-up-art-frame-tv">setup guide</a>.</p>"""),
+   ("If it does not appear in the list", """<p>Restart the Shield and reopen the Screen saver menu. If it still is not there,
+   see <a href="/articles/google-tv-screensaver">how to change the screensaver on Google TV and Android TV</a> for the
+   launcher and ADB routes.</p>"""),
+  ],
+  faq=[
+   ("Where is the screensaver setting on Nvidia Shield?",
+    "Settings, then Device Preferences, then Screen saver."),
+   ("How do I change the screensaver start time on Shield?",
+    "In the Screen saver menu, choose When to start and select the idle time."),
+   ("Can I use my own screensaver app on Shield?",
+    "Yes. Android TV lists installed screensaver apps in the Screen saver menu, so an app such as Art Frame TV appears there after you install it."),
+   ("Why is my Shield showing the same screensaver every time?",
+    "The default Backdrop screensaver rotates its own images. Choose a different screensaver in the same menu if you want something else."),
+  ]),
 ]
 
 HEAD = """<!doctype html>
