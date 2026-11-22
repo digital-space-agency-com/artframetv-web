@@ -14,7 +14,7 @@ ARTICLES = [
   slug="google-tv-screensaver",
   kw="android tv screensaver", vol=390, kd=2,
   updated="2026-11-05",
-  title="How to change the screensaver on Google TV and Android TV",
+  title="Change the screensaver on Google TV (2026)",
   desc="Three ways to change the screensaver on Google TV or Android TV, including how to use a third-party screensaver that Ambient Mode normally blocks.",
   intro="""Google TV and Android TV handle screensavers differently, and the setting most
 people look for — pick any installed app as the screensaver — is hidden on Google TV. Here is
@@ -287,7 +287,7 @@ adb connect 127.0.0.1:55002</code></pre>
  dict(
   slug="google-photos-on-tv",
   kw="google tv screensaver photos", vol=90, kd=27,
-  title="How to put your Google Photos on your TV screensaver",
+  title="Google Photos as a Google TV screensaver",
   desc="Set Google Photos as your Google TV or Android TV screensaver, choose a specific album, and fix the common problem of photos not showing.",
   intro="""Google TV can idle on your own photos instead of stock landscapes. The setup takes
 a minute; the part that trips people up is album selection and the handful of reasons photos
@@ -333,7 +333,7 @@ silently fail to appear.""",
  dict(
   slug="free-art-for-frame-tv",
   kw="free art for samsung frame tv", vol=70, kd=0,
-  title="Where to find free art for a Frame TV — and any other TV",
+  title="Free Frame TV art: where to download it",
   desc="Public-domain sources for free, high-resolution art you can display on a Samsung Frame TV, a Hisense Canvas, or any Google TV, without an Art Store subscription.",
   intro="""Samsung's Art Store is a subscription. The art itself does not have to be. Millions
 of works are in the public domain and available as high-resolution files from museums that paid to
@@ -387,7 +387,7 @@ digitise them, and nothing stops you putting those on a television.""",
  dict(
   slug="tv-as-digital-photo-frame",
   kw="digital photo frame app for tv", vol=140, kd=16,
-  title="How to turn any TV into a digital photo frame",
+  title="Use your TV as a digital picture frame",
   desc="Four ways to use a smart TV as a digital picture frame, what each one costs you in picture quality, and the TV settings that make a screen look like a print.",
   intro="""A television is a far better digital photo frame than most digital photo frames — it
 is bigger, it is already on the wall, and it is already paid for. What stops it looking like one is
@@ -494,7 +494,7 @@ are small enough that most people never consciously notice them.""",
  dict(
   slug="art-mode-without-a-frame-tv",
   kw="art mode tv", vol=260, kd=12,
-  title="Art mode without buying a Frame TV",
+  title="Art mode without a Frame TV: how to get it",
   desc="What Samsung's The Frame actually gives you, which parts are hardware and which are software, and how close an ordinary Google TV can get.",
   intro="""The Frame made art mode mainstream, and it is a genuinely good product. But a lot of
 what people are paying for is software, and software is the part you can replicate on a TV you
@@ -546,7 +546,7 @@ already own. Here is an honest split.""",
   slug="samsung-frame-tv-alternative",
   kw="samsung frame tv alternative", vol=170, kd=4,
   updated="2026-11-13",
-  title="Samsung Frame TV alternatives: art mode on the TV you already own",
+  title="Samsung Frame TV alternative: 3 cheaper ways",
   desc="Three ways to get a Frame-style art display without buying The Frame: a clip-on bezel, an art-mode app on Google TV, or both. What each costs and what you give up.",
   intro="""The Frame is a good product with a price to match. If what you want is a television that
 looks like a framed print when it is idle, you have three realistic alternatives, and one of them
