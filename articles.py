@@ -705,7 +705,7 @@ plain about which is which.""",
    list third-party apps, so you set it once with a launcher that has a screensaver override, or with one ADB command.
    The <a href="/articles/set-up-art-frame-tv">step-by-step setup guide</a> covers both, and you can always just open
    the app from its icon.</p>"""),
-   ("Privacy", """<p>The app has no account system and no analytics SDKs, and your photos stay on the TV. The
+   ("Privacy", """<p>The app has no account system, no ads and no tracking, and your photos stay on the TV. It sends anonymous usage and crash reports that you can switch off in Settings. The
    <a href="/privacy">privacy policy</a> has the details.</p>"""),
   ],
   faq=[
