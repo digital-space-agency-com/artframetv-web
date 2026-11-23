@@ -77,7 +77,7 @@ because Google TV keeps its own Ambient Mode in the way. This guide covers every
 with the ones that need no computer, and the fixes for the errors that stop people on the ADB route.""",
   sections=[
    ("Which route do you need?", """<p>Install <strong>Art Frame TV</strong> from Google Play on the TV
-   and open it once. Then check <strong>Settings → Device Preferences → Screen saver</strong>.</p>
+   (or <a href="/articles/install-app-on-google-tv-from-phone">send it from your phone</a>) and open it once. Then check <strong>Settings → Device Preferences → Screen saver</strong>.</p>
    <ul>
    <li><strong>Art Frame TV is in that list:</strong> select it. You are done.</li>
    <li><strong>There is no Screen saver menu, only Ambient mode (most Google TV devices):</strong>
@@ -1081,6 +1081,57 @@ everyone else.""",
     "Some art is included and a larger catalogue is a paid subscription on Samsung. Public-domain art is free from other sources."),
    ("Can I get art mode on a regular Google TV?",
     "Not as a built-in feature, but an app such as Art Frame TV shows framed artwork and works as a screensaver."),
+  ]),
+ dict(
+  slug="install-app-on-google-tv-from-phone",
+  kw="how to install apps on google tv from phone", vol=0, kd=0,
+  published="2026-11-23", updated="2026-11-23",
+  title="Install Art Frame TV on your Google TV from your phone",
+  desc="Three ways to install Art Frame TV on a Google TV or Android TV: send it from your phone, search the TV's Google Play Store, or scan a QR code. Fixes for when your TV is missing from the list.",
+  intro="""Art Frame TV runs on the television, not on your phone, so a phone is only the remote control for the install.
+The quickest route is to tap Install on your phone and pick your TV from the list. If you are already sitting at the TV,
+you can search for it there instead. Both take about a minute.""",
+  sections=[
+   ("Send it from your phone", """<ol>
+   <li>On your phone, open the Google Play listing for
+   <a href="https://play.google.com/store/apps/details?id=team.dsa.artframetv">Art Frame TV</a>.</li>
+   <li>Tap the arrow beside the Install button, or <strong>Install on more devices</strong>, and choose your TV from the list.</li>
+   <li>Tap <strong>Install</strong>. The TV downloads the app in the background, even if it is on standby, and it appears on the
+   TV's home screen or in Apps when it finishes.</li>
+   </ol>
+   <p>The phone must be signed in to the <strong>same Google account</strong> as the TV. The same list is available on
+   play.google.com from a computer.</p>"""),
+   ("Install it on the TV itself", """<ol>
+   <li>On the TV, open <strong>Apps</strong> and choose <strong>Search for apps</strong>, or use the search bar on the home screen.</li>
+   <li>Type <strong>Art Frame TV</strong> (use the remote's microphone button if you prefer).</li>
+   <li>Open the result and select <strong>Install</strong>, then <strong>Open</strong>.</li>
+   </ol>"""),
+   ("Scan a QR code", """<p>Open the Play listing on your phone through the camera: point it at a QR code that links to
+   <code>play.google.com/store/apps/details?id=team.dsa.artframetv</code>, then follow the steps in the first section.
+   This is the easiest route when the link is on a screen or a printed gift card.</p>"""),
+   ("My TV is not in the list", """<p>Work through these in order.</p>
+   <ul>
+   <li><strong>Different account:</strong> the phone and the TV must use the same Google account. On the TV, check
+   <strong>Settings → Accounts</strong>; on the phone, tap your profile picture in Play.</li>
+   <li><strong>TV asleep or offline:</strong> wake the TV and check it is connected to Wi-Fi. Remote installs wait until it is online.</li>
+   <li><strong>Not a Google TV or Android TV:</strong> the app is built for Google TV and Android TV only. Samsung, LG and Roku
+   TVs use other app stores and cannot install it. A Chromecast with Google TV or a Google TV Streamer adds it to most other TVs.</li>
+   <li><strong>The app says it is not compatible with your phone:</strong> that is expected. Choose your TV in the device list
+   instead of installing on the phone.</li>
+   </ul>"""),
+   ("After installing", """<p>Open Art Frame TV on the TV, pick a frame and an artwork, and make it your screensaver by following the
+   <a href="/articles/set-up-art-frame-tv">setup guide</a>. To show your own photos, scan the QR code the app displays on the TV, then pick
+   photos on your phone.</p>"""),
+  ],
+  faq=[
+   ("Can I install Art Frame TV on my phone?",
+    "No. Art Frame TV is built for Google TV and Android TV. Use your phone only to send the install to your TV."),
+   ("How do I install an app on my Google TV from my phone?",
+    "Open the app's Google Play listing on your phone, tap Install on more devices, choose your TV, and tap Install. The phone and the TV must be signed in to the same Google account."),
+   ("Why is my TV not listed when I install from my phone?",
+    "The TV is usually signed in to a different Google account, is offline, or is not a Google TV or Android TV device."),
+   ("Is Art Frame TV free?",
+    "Yes. It is free to try with 30 artworks included, with no account, ads or trackers. A one-time payment unlocks the rest, with no subscription."),
   ]),
 ]
 
